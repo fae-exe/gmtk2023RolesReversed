@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnnemyManager : MonoBehaviour {
     public static EnnemyManager instance;
 
+    public List<GameObject> currentEnnemies;
 
     #region Starts
     private void Awake() {
@@ -36,6 +37,11 @@ public class EnnemyManager : MonoBehaviour {
     private IEnumerator PlayEnnemyTurn(float timeToWait) {
 
         yield return new WaitForSecondsRealtime(timeToWait);
+        foreach (GameObject ennemy in currentEnnemies)
+        {
+            EnnemyUnitScript ennemyUnitScript = ennemy.GetComponent<EnnemyUnitScript>();
+            ennemyUnitScript.EnnemyPlay();
+        }
         // Next turn
         // TEST IF Lose ///////////////////////////////////////////////////////
         GameManager.instance.UpdateGameState(GameState.PlayerTurn);
@@ -51,6 +57,16 @@ public class EnnemyManager : MonoBehaviour {
         } else { 
             instance = this; 
         } 
+    }
+
+    private void SpawnEnnemies()
+    {
+
+    }
+
+    private void PlaceEnnemy(string ennemyID, int cellID)
+    {
+
     }
     #endregion
 
