@@ -193,6 +193,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SkipTurn",
+                    "type": "Button",
+                    "id": "bdce527d-532e-43a4-85bb-4bf9d3b70126",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RestartLevel",
+                    "type": "Button",
+                    "id": "f58cf4bb-47a9-480c-a4dc-65c1a42ed7ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -204,6 +222,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2bdc782a-7ee9-4e50-9b08-90e2286eefe9",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "SkipTurn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64af2286-e84a-4760-8d4c-64008163d0b9",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "RestartLevel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

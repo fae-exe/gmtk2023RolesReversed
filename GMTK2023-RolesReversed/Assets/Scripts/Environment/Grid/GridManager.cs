@@ -5,9 +5,11 @@ public class GridManager : MonoBehaviour {
     public static GridManager instance;
 
     // Grid info
+    public int gridLevel;
     public Vector2 gridSize;
-    public Vector2 gridStart;
-    public List<Box> gridInfo = new List<Box>();
+    public Vector2 gridPlayerStart;
+    public List<EnnemyInGrid> allEnnemy = new List<EnnemyInGrid>();
+    public List<Box> allBox = new List<Box>();
 
 
     #region Starts
@@ -15,19 +17,45 @@ public class GridManager : MonoBehaviour {
         CheckInstance();
     }
 
-    private void Start() {
-        // Set Grid 01
-        gridSize = GridParamaters.instance.grid01Size;
-        gridInfo = GridParamaters.instance.grid01;
-        gridStart = GridParamaters.instance.grid01Start;
-        GridSetUp.instance.SetGrid(gridInfo, gridSize, gridStart);
+    private void OnEnable() {
+        GameManager.OnGameStateChanged += OnGameStateChanged;
     }
+
+    private void OnDisable() {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
+    }
+    #endregion
+
+    
+    #region Event
+    private void OnGameStateChanged(GameState state) {
+        
+        if(state == GameState.StartLevel) {
+            gridLevel = 0;
+
+            gridSize = GridParamaters.instance.allGrid[gridLevel].gridSize;
+            gridPlayerStart = GridParamaters.instance.allGrid[gridLevel].gridPlayerStart;
+            // add all Ennemy //////////////////////////////////////////////////////////////
+            allBox = new List<Box>();
+            foreach(Box box in GridParamaters.instance.allGrid[gridLevel].allBox) {
+                Box newBox = new Box();
+                newBox.isObstacle = box.isObstacle;
+                newBox.isMakeSound = box.isMakeSound;
+                newBox.isHiding = box.isHiding;
+                newBox.isCheese = box.isCheese;
+                allBox.Add(newBox);
+            }
+            GridSetUp.instance.SetGrid(gridSize, gridPlayerStart, allBox);
+            return;
+        }
+        
+    }   
     #endregion
 
 
     #region Grid Manager
     public Box GetBoxInfo(Vector2 boxPosition) {
-        foreach(Box box in gridInfo) {
+        foreach(Box box in allBox) {
             if(boxPosition == box.positionInGrid) return box;
         }
         return null;

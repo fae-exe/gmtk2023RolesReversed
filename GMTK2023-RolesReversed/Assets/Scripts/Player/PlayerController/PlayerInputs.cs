@@ -215,6 +215,24 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkipTurn"",
+                    ""type"": ""Button"",
+                    ""id"": ""bdce527d-532e-43a4-85bb-4bf9d3b70126"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RestartLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""f58cf4bb-47a9-480c-a4dc-65c1a42ed7ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -226,6 +244,28 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bdc782a-7ee9-4e50-9b08-90e2286eefe9"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SkipTurn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64af2286-e84a-4760-8d4c-64008163d0b9"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""RestartLevel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1117,6 +1157,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         // Action
         m_Action = asset.FindActionMap("Action", throwIfNotFound: true);
         m_Action_Attack = m_Action.FindAction("Attack", throwIfNotFound: true);
+        m_Action_SkipTurn = m_Action.FindAction("SkipTurn", throwIfNotFound: true);
+        m_Action_RestartLevel = m_Action.FindAction("RestartLevel", throwIfNotFound: true);
         // Move
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
         m_Move_Move = m_Move.FindAction("Move", throwIfNotFound: true);
@@ -1237,11 +1279,15 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Action;
     private IActionActions m_ActionActionsCallbackInterface;
     private readonly InputAction m_Action_Attack;
+    private readonly InputAction m_Action_SkipTurn;
+    private readonly InputAction m_Action_RestartLevel;
     public struct ActionActions
     {
         private @PlayerInputs m_Wrapper;
         public ActionActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Attack => m_Wrapper.m_Action_Attack;
+        public InputAction @SkipTurn => m_Wrapper.m_Action_SkipTurn;
+        public InputAction @RestartLevel => m_Wrapper.m_Action_RestartLevel;
         public InputActionMap Get() { return m_Wrapper.m_Action; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1254,6 +1300,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnAttack;
+                @SkipTurn.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnSkipTurn;
+                @SkipTurn.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnSkipTurn;
+                @SkipTurn.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnSkipTurn;
+                @RestartLevel.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnRestartLevel;
+                @RestartLevel.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnRestartLevel;
+                @RestartLevel.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnRestartLevel;
             }
             m_Wrapper.m_ActionActionsCallbackInterface = instance;
             if (instance != null)
@@ -1261,6 +1313,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @SkipTurn.started += instance.OnSkipTurn;
+                @SkipTurn.performed += instance.OnSkipTurn;
+                @SkipTurn.canceled += instance.OnSkipTurn;
+                @RestartLevel.started += instance.OnRestartLevel;
+                @RestartLevel.performed += instance.OnRestartLevel;
+                @RestartLevel.canceled += instance.OnRestartLevel;
             }
         }
     }
@@ -1497,6 +1555,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     public interface IActionActions
     {
         void OnAttack(InputAction.CallbackContext context);
+        void OnSkipTurn(InputAction.CallbackContext context);
+        void OnRestartLevel(InputAction.CallbackContext context);
     }
     public interface IMoveActions
     {

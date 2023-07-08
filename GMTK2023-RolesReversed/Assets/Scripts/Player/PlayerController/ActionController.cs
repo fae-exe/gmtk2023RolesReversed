@@ -16,6 +16,8 @@ public class ActionController : MonoBehaviour {
     private void GetPlayerActionMaps() {
         playerInputs = new PlayerInputs();
         playerInputs.Action.Attack.started += TriggerAttack;
+        playerInputs.Action.SkipTurn.started += SkipTurn;
+        playerInputs.Action.RestartLevel.started += RestartLevel;
     }
     
     private void OnEnable() {
@@ -49,6 +51,19 @@ public class ActionController : MonoBehaviour {
     private bool CouldUpdate() {
         if(GameManager.instance.state == GameState.PlayerTurn) return true;
         return false;
+    }
+    #endregion
+
+
+    #region Level and Turn
+    private void SkipTurn(InputAction.CallbackContext context) {   
+        if(!CouldUpdate()) return;
+        
+        GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
+    }
+
+    private void RestartLevel(InputAction.CallbackContext context) {           
+        GameManager.instance.UpdateGameState(GameState.StartLevel);
     }
     #endregion
 

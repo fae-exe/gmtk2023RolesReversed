@@ -47,6 +47,7 @@ public class CheeseUI : MonoBehaviour {
         cheeseUIObject.SetActive(false);
     }   
     #endregion
+    
 
     #region Cheese UI
     public void SetCheeseUI(int maxCheeseLevel) {

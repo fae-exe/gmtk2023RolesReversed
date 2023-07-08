@@ -6,7 +6,8 @@ public class GridSetUp : MonoBehaviour {
     public static GridSetUp instance;
 
     // Grid info
-    [SerializeField] private Transform gridContainer;
+    [SerializeField] private Transform environments;
+    public GameObject gridContainer;
     [SerializeField] private List<GameObject> boxPrefab = new List<GameObject>();
     [SerializeField] private List<GameObject> obstaclePrefab = new List<GameObject>();
     [SerializeField] private List<GameObject> cheesePrefab = new List<GameObject>();
@@ -21,21 +22,26 @@ public class GridSetUp : MonoBehaviour {
 
 
     #region Grid SetUp
-    public void SetGrid(List<Box> gridInfo, Vector2 gridSize, Vector2 gridStart) {
+    public void SetGrid(Vector2 gridSize, Vector2 gridPlayerStart, List<Box> allBox) {
+        // Reset grid if one
+        if(gridContainer != null) Destroy(gridContainer);
+        gridContainer = new GameObject("Grid");
+        gridContainer.transform.parent = environments;
+
         int i = 0;
         for(int y = 0; y < gridSize.y; y++) {
             for(int x = 0; x < gridSize.x; x++) {
                 Vector2 boxPosition = new Vector2(x * gridStep.x, y * gridStep.y);
                 // Change prefab selection to random or predefine
-                GameObject boxObject = Instantiate(boxPrefab[0], boxPosition, Quaternion.identity, gridContainer);
-                gridInfo[i].boxObject = boxObject;
-                gridInfo[i].positionInGrid = new Vector2(x, y);
-                IsObstacleOnBox(gridInfo[i]);
-                IsCheeseOnBox(gridInfo[i]);
+                GameObject boxObject = Instantiate(boxPrefab[0], boxPosition, Quaternion.identity, gridContainer.transform);
+                allBox[i].boxObject = boxObject;
+                allBox[i].positionInGrid = new Vector2(x, y);
+                IsObstacleOnBox(allBox[i]);
+                IsCheeseOnBox(allBox[i]);
                 i++;
             }
         }
-        PlayerManager.instance.SetPlayerPosition(gridStart);
+        PlayerManager.instance.SetPlayerPosition(gridPlayerStart);
     }
 
     private void IsObstacleOnBox(Box box) {

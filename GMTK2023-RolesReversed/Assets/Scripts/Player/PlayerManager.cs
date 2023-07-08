@@ -13,9 +13,25 @@ public class PlayerManager : MonoBehaviour {
         CheckInstance();
     }
 
-    private void Start() {
-        CheeseUI.instance.SetCheeseUI(playerInfo.maxCheeseLevel);
+    private void OnEnable() {
+        GameManager.OnGameStateChanged += OnGameStateChanged;
     }
+
+    private void OnDisable() {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
+    }
+    #endregion
+
+    
+    #region Event
+    private void OnGameStateChanged(GameState state) {
+        
+        if(state == GameState.StartLevel) {
+            CheeseUI.instance.SetCheeseUI(playerInfo.maxCheeseLevel);
+            return;
+        }
+        
+    }   
     #endregion
 
 

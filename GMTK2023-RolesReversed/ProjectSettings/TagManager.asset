@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Box
+    uniqueID: 291493823
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

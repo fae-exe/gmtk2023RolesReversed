@@ -6,9 +6,7 @@ public class GridParamaters : MonoBehaviour {
     public static GridParamaters instance;
 
     // All Grids info
-    public Vector2 grid01Size;
-    public Vector2 grid01Start;
-    public List<Box> grid01 = new List<Box>();
+    public List<GridScriptObj> allGrid = new List<GridScriptObj>();
 
 
     #region Starts
