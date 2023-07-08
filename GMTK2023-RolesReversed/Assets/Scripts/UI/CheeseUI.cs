@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class CheeseUI : MonoBehaviour {
     public static CheeseUI instance;
@@ -10,7 +11,12 @@ public class CheeseUI : MonoBehaviour {
 
     // Cheese info
     [SerializeField] private GameObject cheeseUIObject;
-    [SerializeField] private GameObject cheeseLevelPrefab;
+    [SerializeField] private CheeseLevel cheeseLevelPrefab;
+
+    [SerializeField] private AnimationQueue _cheeseUIAnimationQueue;
+
+    private List<CheeseLevel> _cheeseLevelList = new List<CheeseLevel>();
+
     [SerializeField] private Vector2 step;
     [SerializeField] private Vector2 start;
     [SerializeField] private Color colorEmpty;
@@ -44,7 +50,7 @@ public class CheeseUI : MonoBehaviour {
             return;
         }
 
-        cheeseUIObject.SetActive(false);
+        cheeseUIObject.SetActive(true);
     }   
     #endregion
     
@@ -53,17 +59,18 @@ public class CheeseUI : MonoBehaviour {
     public void SetCheeseUI(int maxCheeseLevel) {
         for(int i = 0; i < maxCheeseLevel; i++) {
             Vector3 newPosition = cheeseUIObject.transform.position + new Vector3(i * step.x - start.x, i * step.y - start.y, 0);
-            GameObject newSlot = Instantiate(cheeseLevelPrefab, newPosition, Quaternion.identity, cheeseUIObject.transform);
-            newSlot.GetComponent<Image>().color = colorEmpty;
+            CheeseLevel newCheeseLevel = Instantiate(cheeseLevelPrefab, newPosition, Quaternion.identity, cheeseUIObject.transform);
+            newCheeseLevel.Initialize(_cheeseUIAnimationQueue);
+            _cheeseLevelList.Add(newCheeseLevel);
         }        
     }
 
     public void SetCheeseUILevel(int maxCheeseLevel, int playerCheese) {
         for(int i = 0; i < playerCheese; i++) {
-            cheeseUIObject.transform.GetChild(i).GetComponent<Image>().color = colorFull;
+            _cheeseLevelList[i].Show();
         }     
         for(int i = playerCheese; i < maxCheeseLevel; i++) {
-            cheeseUIObject.transform.GetChild(i).GetComponent<Image>().color = colorEmpty;
+            _cheeseLevelList[i].Hide();
         }           
     }
     #endregion

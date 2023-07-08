@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 734719681915246544}
   - component: {fileID: 734719681915246558}
   - component: {fileID: 734719681915246559}
+  - component: {fileID: 2784713790332175492}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -78,8 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInfo: {fileID: 0}
   cheeseUIObject: {fileID: 6472343053833798006}
-  cheeseLevelPrefab: {fileID: 8980066441794775091, guid: da0b64fbe2263c14ab254f68afe3b2b8, type: 3}
-  step: {x: 20, y: 0}
+  cheeseLevelPrefab: {fileID: 4164371973537709959, guid: da0b64fbe2263c14ab254f68afe3b2b8, type: 3}
+  _cheeseUIAnimationQueue: {fileID: 2784713790332175492}
+  step: {x: 60, y: 0}
   start: {x: 0, y: 0}
   colorEmpty: {r: 1, g: 1, b: 1, a: 1}
   colorFull: {r: 1, g: 0.83712673, b: 0, a: 1}
@@ -100,6 +102,21 @@ MonoBehaviour:
   attackText: {fileID: 6472343054126078559}
   isAttackText: Ready to kick some ass
   isNonAttackText: 
+--- !u!114 &2784713790332175492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734719681915246557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da83c1f349b8304e8753f6a737ca9ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationStack: []
+  IsPlaying: 0
+  _onEmptyAnimationQueue: {fileID: 0}
 --- !u!1 &6472343053155422164
 GameObject:
   m_ObjectHideFlags: 0

@@ -133,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPositionInGrid: {x: 0, y: 0}
   cheeseLevel: 0
-  maxCheeseLevel: 10
+  maxCheeseLevel: 5
   isAttacking: 0
 --- !u!1 &5565334441019925639
 GameObject:
