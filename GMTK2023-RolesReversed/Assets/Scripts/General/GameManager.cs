@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour {
     public void StartToPlay() {
         UpdateGameState(GameState.PlayerTurn);
     }
+
+    public void NextLevel() {
+        UpdateGameState(GameState.StartLevel);
+    }
     #endregion
     
 

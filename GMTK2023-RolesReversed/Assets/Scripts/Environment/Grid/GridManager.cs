@@ -17,6 +17,10 @@ public class GridManager : MonoBehaviour {
         CheckInstance();
     }
 
+    private void Start() {
+        gridLevel = 0;
+    }
+
     private void OnEnable() {
         GameManager.OnGameStateChanged += OnGameStateChanged;
     }
@@ -31,8 +35,6 @@ public class GridManager : MonoBehaviour {
     private void OnGameStateChanged(GameState state) {
         
         if(state == GameState.StartLevel) {
-            gridLevel = 0;
-
             gridSize = GridParamaters.instance.allGrid[gridLevel].gridSize;
             gridPlayerStart = GridParamaters.instance.allGrid[gridLevel].gridPlayerStart;
             // add all Ennemy //////////////////////////////////////////////////////////////
@@ -46,6 +48,10 @@ public class GridManager : MonoBehaviour {
                 allBox.Add(newBox);
             }
             GridSetUp.instance.SetGrid(gridSize, gridPlayerStart, allBox);
+            return;
+        }
+        if(state == GameState.Win) {
+            gridLevel++;
             return;
         }
         

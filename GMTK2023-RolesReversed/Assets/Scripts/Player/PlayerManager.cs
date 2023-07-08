@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
@@ -6,6 +7,9 @@ public class PlayerManager : MonoBehaviour {
     // Player info
     [SerializeField] private Transform player;
     [SerializeField] private PlayerInfo playerInfo;
+
+    // Ennemy
+    public static event Action<GameObject> OnSmashingEnnemy;
 
 
     #region Starts
@@ -47,9 +51,24 @@ public class PlayerManager : MonoBehaviour {
 
         playerInfo.cheeseLevel++;
         CheeseUI.instance.SetCheeseUILevel(playerInfo.maxCheeseLevel, playerInfo.cheeseLevel);
+        IsOnFury();
 
         box.isCheese = false;
         Destroy(box.cheeseObject);
+    }
+
+    public void IsSmashingEnnemy(Box box) {
+        if(!box.isEnnemy || !playerInfo.isAttacking) return;
+
+        playerInfo.cheeseLevel--;
+        CheeseUI.instance.SetCheeseUILevel(playerInfo.maxCheeseLevel, playerInfo.cheeseLevel);
+        IsOnFury();
+
+        OnSmashingEnnemy?.Invoke(box.ennemyObject);
+    }
+
+    public void IsOnFury() {
+        playerInfo.isAttacking = playerInfo.cheeseLevel > 0 ? true : false;
     }
     #endregion
 
