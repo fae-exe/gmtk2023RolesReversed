@@ -12,28 +12,8 @@ public class GridScriptObj : ScriptableObject {
     public List<EnnemyInGrid> allEnnemy = new List<EnnemyInGrid>();
     public List<Box> allBox = new List<Box>();
 
-
 }
 
-[Serializable]
-public class EnnemyInGrid {
-    public string name;
-    public EnnemyType ennemyType;
-    public Vector2 startInGrid;
-    public Direction directionStart;
-    
-}
 
-public enum EnnemyType {
-    Cat,
-    Snake
-}
-
-public enum Direction {
-    Up,
-    Right,
-    Down,
-    Left
-}
 
 
