@@ -15,7 +15,11 @@ MonoBehaviour:
   gridLevel: 0
   gridSize: {x: 6, y: 6}
   gridPlayerStart: {x: 0, y: 1}
-  allEnnemy: []
+  allEnnemy:
+  - name: 
+    ennemyType: 0
+    startInGrid: {x: 0, y: 0}
+    directionStart: 0
   allBox:
   - name: 
     text1: 
@@ -23,6 +27,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -35,6 +42,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -47,6 +57,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -59,6 +72,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -71,6 +87,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -83,6 +102,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -95,6 +117,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -107,6 +132,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -119,6 +147,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -131,6 +162,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -143,6 +177,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -155,6 +192,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -167,6 +207,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 1
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -179,6 +222,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -191,6 +237,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -203,6 +252,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -215,6 +267,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -227,6 +282,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -239,6 +297,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -251,6 +312,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -263,6 +327,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -275,6 +342,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -287,6 +357,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -299,6 +372,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -311,6 +387,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -323,6 +402,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -335,6 +417,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -347,6 +432,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -359,6 +447,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -371,6 +462,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -383,6 +477,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -395,6 +492,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -407,6 +507,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -419,6 +522,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -431,6 +537,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -443,6 +552,9 @@ MonoBehaviour:
     isMakeSound: 0
     isHiding: 0
     isCheese: 0
+    isPlayer: 0
+    isEnnemy: 0
+    ennemyObject: {fileID: 0}
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}

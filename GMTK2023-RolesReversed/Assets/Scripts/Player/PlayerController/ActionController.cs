@@ -15,7 +15,7 @@ public class ActionController : MonoBehaviour {
 
     private void GetPlayerActionMaps() {
         playerInputs = new PlayerInputs();
-        playerInputs.Action.Attack.started += TriggerAttack;
+        // playerInputs.Action.Attack.started += TriggerAttack;
         playerInputs.Action.SkipTurn.started += SkipTurn;
         playerInputs.Action.RestartLevel.started += RestartLevel;
     }
@@ -31,27 +31,22 @@ public class ActionController : MonoBehaviour {
 
 
     #region Attack
-    private void TriggerAttack(InputAction.CallbackContext context) {
-        if(!CouldUpdate()) return;
+    // private void TriggerAttack(InputAction.CallbackContext context) {
+    //     if(!CouldUpdate()) return;
 
-        if(playerInfo.isAttacking) {
-            playerInfo.isAttacking = false;
-            AttackUI.instance.RefreshAttackUI();
-        } else if(CouldAttack()){
-            playerInfo.isAttacking = true;
-            AttackUI.instance.RefreshAttackUI();
-        }        
-    }
+    //     if(playerInfo.isAttacking) {
+    //         playerInfo.isAttacking = false;
+    //         AttackUI.instance.RefreshAttackUI();
+    //     } else if(CouldAttack()){
+    //         playerInfo.isAttacking = true;
+    //         AttackUI.instance.RefreshAttackUI();
+    //     }        
+    // }
 
-    private bool CouldAttack() {
-        if(playerInfo.cheeseLevel > 0) return true;
-        return false;
-    }
-
-    private bool CouldUpdate() {
-        if(GameManager.instance.state == GameState.PlayerTurn) return true;
-        return false;
-    }
+    // private bool CouldAttack() {
+    //     if(playerInfo.cheeseLevel > 0) return true;
+    //     return false;
+    // }
     #endregion
 
 
@@ -64,6 +59,11 @@ public class ActionController : MonoBehaviour {
 
     private void RestartLevel(InputAction.CallbackContext context) {           
         GameManager.instance.UpdateGameState(GameState.StartLevel);
+    }
+
+    private bool CouldUpdate() {
+        if(GameManager.instance.state == GameState.PlayerTurn) return true;
+        return false;
     }
     #endregion
 

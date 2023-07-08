@@ -36,6 +36,11 @@ public class Box {
     public bool isMakeSound;
     public bool isHiding;
     public bool isCheese;
+    // Test if someone
+    public bool isPlayer;
+    public bool isEnnemy;
+    public GameObject ennemyObject;
+    // Construct object
     public string text2 = new string("No need, it for code");
     public Vector2 positionInGrid;
     public GameObject boxObject;

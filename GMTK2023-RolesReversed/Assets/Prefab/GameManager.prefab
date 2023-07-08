@@ -47,3 +47,4 @@ MonoBehaviour:
   previousState: 0
   state: 0
   startState: 1
+  gridLevel: 0

@@ -32,7 +32,6 @@ public class MoveController : MonoBehaviour {
     #region Move
     private void Move(InputAction.CallbackContext context) {
         if(!CouldUpdate()) return;
-
         
         Vector2 boxDirection = GetDirection(playerInputs.Move.Move.ReadValue<Vector2>());
         Vector2 boxToGo = playerInfo.playerPositionInGrid + boxDirection;
@@ -42,9 +41,10 @@ public class MoveController : MonoBehaviour {
             Vector3 newMove = new Vector3(boxDirection.x * step.x, boxDirection.y * step.y, 0);
             player.transform.position += newMove;
             playerInfo.playerPositionInGrid = boxToGo; 
+            // Check player new states (on cheese, attack)
             PlayerManager.instance.IsOnCheese(GridManager.instance.GetBoxInfo(boxToGo));
+            PlayerManager.instance.IsSmashingEnnemy(GridManager.instance.GetBoxInfo(boxToGo));
             // Next turn
-            // TEST IF WIN ///////////////////////////////////////////////////////
             GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
         } else {
             // Ad visuale effect
@@ -82,6 +82,7 @@ public class MoveController : MonoBehaviour {
         if(boxPosition.x >= GridManager.instance.gridSize.x) return false;
         if(boxPosition.y >= GridManager.instance.gridSize.y) return false;
         if(GridManager.instance.GetBoxInfo(boxPosition).isObstacle) return false;
+        if(GridManager.instance.GetBoxInfo(boxPosition).isEnnemy && !playerInfo.isAttacking) return false;
         return true;
     }
     #endregion
