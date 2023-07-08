@@ -66,6 +66,7 @@ public class CheeseUI : MonoBehaviour {
     }
 
     public void SetCheeseUILevel(int maxCheeseLevel, int playerCheese) {
+        Debug.Log("Set cheese UI Level is called");
         for(int i = 0; i < playerCheese; i++) {
             _cheeseLevelList[i].Show();
         }     

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Grid00
   m_EditorClassIdentifier: 
   gridLevel: 0
-  gridSize: {x: 6, y: 6}
+  gridSize: {x: 7, y: 8}
   gridPlayerStart: {x: 0, y: 1}
   allEnnemy: []
   allBox:
@@ -298,7 +298,7 @@ MonoBehaviour:
     isObstacle: 0
     isMakeSound: 0
     isHiding: 0
-    isCheese: 0
+    isCheese: 1
     text2: 
     positionInGrid: {x: 0, y: 0}
     boxObject: {fileID: 0}
@@ -308,6 +308,246 @@ MonoBehaviour:
   - name: 
     text1: 
     isObstacle: 1
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 1
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 1
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 1
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
+    isMakeSound: 0
+    isHiding: 0
+    isCheese: 0
+    text2: 
+    positionInGrid: {x: 0, y: 0}
+    boxObject: {fileID: 0}
+    isEnnemyObstacle: 0
+    obstacleObject: {fileID: 0}
+    cheeseObject: {fileID: 0}
+  - name: 
+    text1: 
+    isObstacle: 0
     isMakeSound: 0
     isHiding: 0
     isCheese: 0

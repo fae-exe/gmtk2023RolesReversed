@@ -5,8 +5,9 @@ using MoreMountains.Feedbacks;
 
 public class CheeseLevel : MonoBehaviour
 {
-    [SerializeField] MMF_Player _showLevel, _hideLevel, _idleShown;
-    [SerializeField] AnimationQueue _cheeseLevelAnimationQueue;
+    [SerializeField] MMF_Player _showLevel, _hideLevel, _initHide;
+    
+    AnimationQueue _cheeseLevelAnimationQueue;
 
     private CheeseStates _currentState = CheeseStates.Hidden;
 
@@ -14,13 +15,13 @@ public class CheeseLevel : MonoBehaviour
     {
         _cheeseLevelAnimationQueue = new AnimationQueue();
         _currentState = CheeseStates.Hidden;
-        InstantStateUpdate();
+        _initHide.PlayFeedbacks();
     }
 
     public void Initialize(AnimationQueue animationQueue) { 
         _cheeseLevelAnimationQueue = animationQueue;
         _currentState = CheeseStates.Hidden;
-        InstantStateUpdate();
+        _initHide.PlayFeedbacks();
     }
 
     private void InstantStateUpdate()
@@ -43,13 +44,19 @@ public class CheeseLevel : MonoBehaviour
     public void Show()
     {
         if (_currentState == CheeseStates.Shown) { return; }
-        else if (_currentState == CheeseStates.Hidden && _showLevel) { _cheeseLevelAnimationQueue.Enqueue(_showLevel); }
+        else if (_currentState == CheeseStates.Hidden) {
+            _currentState = CheeseStates.Shown;
+            _cheeseLevelAnimationQueue.Enqueue(_showLevel); 
+        }
     }
 
     public void Hide()
     {
         if (_currentState == CheeseStates.Hidden) { return; }
-        else if (_currentState == CheeseStates.Shown && _hideLevel) { _cheeseLevelAnimationQueue.Enqueue(_hideLevel); }
+        else if (_currentState == CheeseStates.Shown) {
+            _currentState = CheeseStates.Hidden;
+            _cheeseLevelAnimationQueue.Enqueue(_hideLevel); 
+        }
     }
 
 }

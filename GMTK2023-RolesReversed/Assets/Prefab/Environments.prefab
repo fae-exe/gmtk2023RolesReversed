@@ -85,7 +85,7 @@ MonoBehaviour:
   - {fileID: 5594578860732283792, guid: cc81a07af44c0d14597ecb42b6e50a1e, type: 3}
   cheesePrefab:
   - {fileID: 5594578860732283792, guid: 0af8c39abc69f864a8c89cb391773317, type: 3}
-  gridStep: {x: 40, y: 30}
+  gridStep: {x: 39, y: 27}
 --- !u!1 &4692752452055532175
 GameObject:
   m_ObjectHideFlags: 0
