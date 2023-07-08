@@ -5,7 +5,6 @@ using UnityEngine;
 public class GridParamaters : MonoBehaviour {
     public static GridParamaters instance;
 
-
     // All Grids info
     public Vector2 grid01Size;
     public Vector2 grid01Start;
@@ -34,11 +33,15 @@ public class GridParamaters : MonoBehaviour {
 [Serializable]
 public class Box {
     public string name;
+    public string text1 = new string("Stuff to check");
+    public bool isObstacle;
+    public bool isMakeSound;
+    public bool isHiding;
+    public bool isCheese;
+    public string text2 = new string("No need, it for code");
     public Vector2 positionInGrid;
     public GameObject boxObject;
-    public bool isObstacle;
     public bool isEnnemyObstacle;
     public GameObject obstacleObject;
-    public bool isCheese;
     public GameObject cheeseObject;
 }

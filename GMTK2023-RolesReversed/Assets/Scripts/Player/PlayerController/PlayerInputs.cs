@@ -208,45 +208,9 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
             ""id"": ""4611517a-eca8-4587-a76a-02f3e48e94dd"",
             ""actions"": [
                 {
-                    ""name"": ""MainAction"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
-                    ""id"": ""caa99c05-6d37-491f-a0c3-7c0be24f9dbf"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""SecondAction"",
-                    ""type"": ""Button"",
-                    ""id"": ""2bb3eb68-713e-4c4d-b599-25480b4745d8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ThirdAction"",
-                    ""type"": ""Button"",
-                    ""id"": ""d702e877-2c6c-4a73-9c1a-327643a018a1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Copy"",
-                    ""type"": ""Button"",
-                    ""id"": ""acd69649-6886-41d4-94ba-c319bdf10a1a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Smooth"",
-                    ""type"": ""Button"",
-                    ""id"": ""b14b980a-6838-4c64-9bee-8f5264fc6516"",
+                    ""id"": ""436a9918-bf42-4dea-b7e3-8a25d7bd7033"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -256,78 +220,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""378c7aab-9ef1-49b8-92a4-b34c1c811143"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""64229a5e-bae8-44ae-bfea-593946f40f8d"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MainAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""dd57102a-df86-4d40-bc55-8fd8e8d55497"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MainAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8f92d1ad-4f14-4c6d-8917-59c03eccbf06"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""MainAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ea4683dc-4082-4ed7-8896-c2fd5ab1b431"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Copy"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9cd3fe29-0fd3-4683-9c8b-80fef3ce6c9e"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Smooth"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f812ecfb-accc-43b3-99d6-8d7ce51665bd"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""SecondAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""23505121-dc46-4d64-b3c4-0330dcb09632"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""ThirdAction"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1218,11 +1116,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Cursor_Zoom = m_Cursor.FindAction("Zoom", throwIfNotFound: true);
         // Action
         m_Action = asset.FindActionMap("Action", throwIfNotFound: true);
-        m_Action_MainAction = m_Action.FindAction("MainAction", throwIfNotFound: true);
-        m_Action_SecondAction = m_Action.FindAction("SecondAction", throwIfNotFound: true);
-        m_Action_ThirdAction = m_Action.FindAction("ThirdAction", throwIfNotFound: true);
-        m_Action_Copy = m_Action.FindAction("Copy", throwIfNotFound: true);
-        m_Action_Smooth = m_Action.FindAction("Smooth", throwIfNotFound: true);
+        m_Action_Attack = m_Action.FindAction("Attack", throwIfNotFound: true);
         // Move
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
         m_Move_Move = m_Move.FindAction("Move", throwIfNotFound: true);
@@ -1342,20 +1236,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     // Action
     private readonly InputActionMap m_Action;
     private IActionActions m_ActionActionsCallbackInterface;
-    private readonly InputAction m_Action_MainAction;
-    private readonly InputAction m_Action_SecondAction;
-    private readonly InputAction m_Action_ThirdAction;
-    private readonly InputAction m_Action_Copy;
-    private readonly InputAction m_Action_Smooth;
+    private readonly InputAction m_Action_Attack;
     public struct ActionActions
     {
         private @PlayerInputs m_Wrapper;
         public ActionActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @MainAction => m_Wrapper.m_Action_MainAction;
-        public InputAction @SecondAction => m_Wrapper.m_Action_SecondAction;
-        public InputAction @ThirdAction => m_Wrapper.m_Action_ThirdAction;
-        public InputAction @Copy => m_Wrapper.m_Action_Copy;
-        public InputAction @Smooth => m_Wrapper.m_Action_Smooth;
+        public InputAction @Attack => m_Wrapper.m_Action_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Action; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1365,40 +1251,16 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_ActionActionsCallbackInterface != null)
             {
-                @MainAction.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnMainAction;
-                @MainAction.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnMainAction;
-                @MainAction.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnMainAction;
-                @SecondAction.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnSecondAction;
-                @SecondAction.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnSecondAction;
-                @SecondAction.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnSecondAction;
-                @ThirdAction.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnThirdAction;
-                @ThirdAction.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnThirdAction;
-                @ThirdAction.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnThirdAction;
-                @Copy.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnCopy;
-                @Copy.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnCopy;
-                @Copy.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnCopy;
-                @Smooth.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnSmooth;
-                @Smooth.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnSmooth;
-                @Smooth.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnSmooth;
+                @Attack.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_ActionActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @MainAction.started += instance.OnMainAction;
-                @MainAction.performed += instance.OnMainAction;
-                @MainAction.canceled += instance.OnMainAction;
-                @SecondAction.started += instance.OnSecondAction;
-                @SecondAction.performed += instance.OnSecondAction;
-                @SecondAction.canceled += instance.OnSecondAction;
-                @ThirdAction.started += instance.OnThirdAction;
-                @ThirdAction.performed += instance.OnThirdAction;
-                @ThirdAction.canceled += instance.OnThirdAction;
-                @Copy.started += instance.OnCopy;
-                @Copy.performed += instance.OnCopy;
-                @Copy.canceled += instance.OnCopy;
-                @Smooth.started += instance.OnSmooth;
-                @Smooth.performed += instance.OnSmooth;
-                @Smooth.canceled += instance.OnSmooth;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -1634,11 +1496,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     }
     public interface IActionActions
     {
-        void OnMainAction(InputAction.CallbackContext context);
-        void OnSecondAction(InputAction.CallbackContext context);
-        void OnThirdAction(InputAction.CallbackContext context);
-        void OnCopy(InputAction.CallbackContext context);
-        void OnSmooth(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
     public interface IMoveActions
     {

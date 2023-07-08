@@ -43,6 +43,9 @@ public class MoveController : MonoBehaviour {
             player.transform.position += newMove;
             playerInfo.playerPositionInGrid = boxToGo; 
             PlayerManager.instance.IsOnCheese(GridManager.instance.GetBoxInfo(boxToGo));
+            // Next turn
+            // TEST IF WIN ///////////////////////////////////////////////////////
+            GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
         } else {
             // Ad visuale effect
             Debug.Log("Can't go on this box !");
@@ -51,9 +54,8 @@ public class MoveController : MonoBehaviour {
     }
 
     private bool CouldUpdate() {
-        // if(GameManager.instance.state == GameState.HomeScreen) return true;
-        // if(GameManager.instance.state == GameState.PlayGame) return true;
-        return true;
+        if(GameManager.instance.state == GameState.PlayerTurn) return true;
+        return false;
     }
 
     private Vector2 GetDirection(Vector2 playerInput) {

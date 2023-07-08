@@ -30,6 +30,8 @@ public class PlayerManager : MonoBehaviour {
         if(!box.isCheese) return;
 
         playerInfo.cheeseLevel++;
+        CheeseUI.instance.SetCheeseUILevel(playerInfo.maxCheeseLevel, playerInfo.cheeseLevel);
+
         box.isCheese = false;
         Destroy(box.cheeseObject);
     }

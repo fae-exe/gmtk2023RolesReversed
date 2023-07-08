@@ -5,7 +5,6 @@ using TMPro;
 public class CheeseUI : MonoBehaviour {
     public static CheeseUI instance;
 
-
     // Player info
     public PlayerInfo playerInfo;
 
@@ -18,11 +17,35 @@ public class CheeseUI : MonoBehaviour {
     [SerializeField] private Color colorFull;
 
 
-
     #region Starts
     private void Awake() {
         CheckInstance();
     }
+
+    private void OnEnable() {
+        GameManager.OnGameStateChanged += OnGameStateChanged;
+    }
+
+    private void OnDisable() {
+        GameManager.OnGameStateChanged -= OnGameStateChanged;
+    }
+    #endregion
+
+
+    #region Event
+    private void OnGameStateChanged(GameState state) {
+        
+        if(state == GameState.PlayerTurn) {
+            cheeseUIObject.SetActive(true);
+            return;
+        }
+        if(state == GameState.EnnemyTurn) {
+            cheeseUIObject.SetActive(true);
+            return;
+        }
+
+        cheeseUIObject.SetActive(false);
+    }   
     #endregion
 
     #region Cheese UI
@@ -35,9 +58,12 @@ public class CheeseUI : MonoBehaviour {
     }
 
     public void SetCheeseUILevel(int maxCheeseLevel, int playerCheese) {
-        for(int i = 0; i < maxCheeseLevel; i++) {
-            // cheeseUIObject.GetChild(i).GetComponent<Image>().color = colorFull;
-        }        
+        for(int i = 0; i < playerCheese; i++) {
+            cheeseUIObject.transform.GetChild(i).GetComponent<Image>().color = colorFull;
+        }     
+        for(int i = playerCheese; i < maxCheeseLevel; i++) {
+            cheeseUIObject.transform.GetChild(i).GetComponent<Image>().color = colorEmpty;
+        }           
     }
     #endregion
 

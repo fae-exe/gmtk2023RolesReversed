@@ -186,45 +186,9 @@
             "id": "4611517a-eca8-4587-a76a-02f3e48e94dd",
             "actions": [
                 {
-                    "name": "MainAction",
+                    "name": "Attack",
                     "type": "Button",
-                    "id": "caa99c05-6d37-491f-a0c3-7c0be24f9dbf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SecondAction",
-                    "type": "Button",
-                    "id": "2bb3eb68-713e-4c4d-b599-25480b4745d8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ThirdAction",
-                    "type": "Button",
-                    "id": "d702e877-2c6c-4a73-9c1a-327643a018a1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Copy",
-                    "type": "Button",
-                    "id": "acd69649-6886-41d4-94ba-c319bdf10a1a",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Smooth",
-                    "type": "Button",
-                    "id": "b14b980a-6838-4c64-9bee-8f5264fc6516",
+                    "id": "436a9918-bf42-4dea-b7e3-8a25d7bd7033",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -234,78 +198,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "378c7aab-9ef1-49b8-92a4-b34c1c811143",
-                    "path": "<Mouse>/leftButton",
+                    "id": "64229a5e-bae8-44ae-bfea-593946f40f8d",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "MainAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dd57102a-df86-4d40-bc55-8fd8e8d55497",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "MainAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8f92d1ad-4f14-4c6d-8917-59c03eccbf06",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "MainAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ea4683dc-4082-4ed7-8896-c2fd5ab1b431",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Copy",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9cd3fe29-0fd3-4683-9c8b-80fef3ce6c9e",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Smooth",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f812ecfb-accc-43b3-99d6-8d7ce51665bd",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "SecondAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "23505121-dc46-4d64-b3c4-0330dcb09632",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "ThirdAction",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
