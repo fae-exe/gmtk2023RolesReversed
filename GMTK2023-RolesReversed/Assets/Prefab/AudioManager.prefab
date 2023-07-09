@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2230771035008338446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2230771035008338444}
+  - component: {fileID: 2230771035008338445}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2230771035008338444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230771035008338446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2230771035008338445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2230771035008338446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c74b547811f3749965ecd51e83ac8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Musique
+    clips:
+    - {fileID: 8300000, guid: 48b758f2b11b8e444a1475810f945e20, type: 3}
+    isLooping: 1
+    volume: 0.2
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: MetalMusique
+    clips:
+    - {fileID: 8300000, guid: 6f8d37dad343c5b448e817f5fa97ff06, type: 3}
+    isLooping: 1
+    volume: 0.2
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: Meow
+    clips:
+    - {fileID: 8300000, guid: 520d973d8fc21264e8550cdd589a6a0c, type: 3}
+    isLooping: 0
+    volume: 0.25
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: SnakeHiss
+    clips:
+    - {fileID: 8300000, guid: abe443406ddab09488020de14fd34d26, type: 3}
+    isLooping: 0
+    volume: 0.25
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: CheeseEat
+    clips:
+    - {fileID: 8300000, guid: 3175b04d0a9416445946e98c3427af8e, type: 3}
+    isLooping: 0
+    volume: 0.25
+    pitch: 1
+    audioSource: {fileID: 0}
+  - name: MouseMove
+    clips:
+    - {fileID: 8300000, guid: 73ee42141528bc84885f0e1b016b38aa, type: 3}
+    - {fileID: 8300000, guid: b7a1c690d449ce04eb108c5401c1ac80, type: 3}
+    - {fileID: 8300000, guid: 05e538759dee491469e32e30ca2f2ba9, type: 3}
+    - {fileID: 8300000, guid: d7e948fb3ec18794da9c555857292f4a, type: 3}
+    - {fileID: 8300000, guid: 79e552b6fb84c6749a3d2fb0455ae2a6, type: 3}
+    - {fileID: 8300000, guid: a1f612c4e7f5aef48a40595fa6b0ed94, type: 3}
+    - {fileID: 8300000, guid: b8a0a67f474f7bd4797e86bd2decdede, type: 3}
+    - {fileID: 8300000, guid: 224c05e4d5e23ad4298ff20a07eb0802, type: 3}
+    - {fileID: 8300000, guid: 83da552fa81600f4089bfc4fb21d05df, type: 3}
+    - {fileID: 8300000, guid: 4853989057b18184d82b0d0eda799cdb, type: 3}
+    isLooping: 0
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}

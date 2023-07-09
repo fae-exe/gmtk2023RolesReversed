@@ -58,6 +58,8 @@ public class PlayerManager : MonoBehaviour {
 
         // MAYBE TO SWITCH PLACE TO ADD AN ANIM OF CHEESE DESTROY ??
         box.isCheese = false;
+        AudioManager.instance.PlaySound("CheeseEat", 0.01f);
+        
         Destroy(box.cheeseObject);
     }
 

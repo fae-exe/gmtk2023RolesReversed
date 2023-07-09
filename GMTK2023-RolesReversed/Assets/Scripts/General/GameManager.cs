@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         UpdateGameState(startState);
+        AudioManager.instance.PlaySound("Musique", 0.01f);
+
     }
     #endregion
 
