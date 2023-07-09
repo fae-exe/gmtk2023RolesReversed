@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class EnnemyManager : MonoBehaviour {
     [SerializeField] private List<EnnemyInGrid> allEnnemyInfo = new List<EnnemyInGrid>();
     [SerializeField] private GameObject ennemyContainer;
     [SerializeField] private GameObject ennemyPrefab;
+    public EnnemyListSO ennemyList;
+
+    // Event
+    public static event Action<GameObject> OnPlayerSeen;
+
 
     #region Starts
     private void Awake() {
@@ -51,11 +57,17 @@ public class EnnemyManager : MonoBehaviour {
 
     #region Ennemy Manager
     private void SpawnEnnemies() {
+        currentEnnemies = new List<GameObject>();
+
         foreach(EnnemyInGrid ennemyInfo in allEnnemyInfo) {
             GameObject newEnnemy = Instantiate(ennemyPrefab, transform.position, Quaternion.identity, ennemyContainer.transform);
             newEnnemy.GetComponent<EnnemyUnitScript>().OnEnnemySpawn(ennemyInfo);
+            
+            currentEnnemies.Add(newEnnemy);
         }        
     }
+
+
 
     private IEnumerator PlayEnnemyTurn(float timeToWait) {
 
@@ -66,9 +78,13 @@ public class EnnemyManager : MonoBehaviour {
             //ennemyUnitScript.EnnemyPlay();
         }
         // Next turn
-        // TEST IF Lose ///////////////////////////////////////////////////////
         GameManager.instance.UpdateGameState(GameState.PlayerTurn);
 
+    }
+
+    public void PlayerSeenByEnnemy(GameObject ennemyObject) {
+        OnPlayerSeen?.Invoke(ennemyObject);
+        GameManager.instance.UpdateGameState(GameState.Lose);
     }
     #endregion
 
