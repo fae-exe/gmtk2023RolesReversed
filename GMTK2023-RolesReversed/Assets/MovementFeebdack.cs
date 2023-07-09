@@ -13,7 +13,7 @@ public class MovementFeebdack : MonoBehaviour
 
     [SerializeField] private AnimationQueue _characterAnimationQueue;
 
-    [SerializeField] private MMF_Player _hideSpriteHorizontal, _hideSpriteVertical, _showSprite, _updateSpriteLogic, _movementFeedback, _cantMove;
+    [SerializeField] private MMF_Player _hideSpriteHorizontal, _hideSpriteVertical, _showSprite, _updateSpriteLogic, _movementFeedback, _cantMove, _killFeedback, _cheeseFeedback;
 
     private CharacterDataSO _curentCharacterData;
 
@@ -73,7 +73,7 @@ public class MovementFeebdack : MonoBehaviour
 
     // Cheese and attack event
     private void OnGetDaCheese() {
-
+        _cheeseFeedback.PlayFeedbacks();
     }  
 
     private void OnFuryChange(bool isOnFury) {
@@ -92,7 +92,7 @@ public class MovementFeebdack : MonoBehaviour
     } 
 
     private void OnSmashingEnnemy(GameObject ennemyObject) {
-
+        _killFeedback.PlayFeedbacks();
     }  
     #endregion
 
