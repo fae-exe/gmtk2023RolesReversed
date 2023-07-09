@@ -44,46 +44,8 @@ public class MovementFeebdack : MonoBehaviour
     #region Player Event
     // Movement events below
     private void OnPlayerDirection(Direction newOrientation) {
-        // OnOrientationChanged(newOrientation);
-    }   
+        if (newOrientation == _characterOrientation) { return; }
 
-    private void OnPlayerMove() {
-        // OnCharacterMoved();
-    }   
-
-    private void OnPlayerBlocked() {
-        // OnCharacterCantMove();
-    }  
-
-    // Cheese and attack event
-    private void OnGetDaCheese() {
-
-    }  
-
-    private void OnFuryChange(bool isOnFury) {
-
-    } 
-
-    private void OnSmashingEnnemy(GameObject ennemyObject) {
-
-    }  
-    #endregion
-
-
-    public void OnStateChanged(CharacterState newState)
-    {
-        _currentState = newState;
-        _curentCharacterData = _characterList.GetData(newState);
-        UpdateSprite();
-    }
-
-    public void UpdateSprite()
-    {
-        _characterSpriteRenderer.sprite = _curentCharacterData.GetSprite(_characterOrientation);
-    }
-
-    public void OnOrientationChanged(Direction newOrientation)
-    {
         if (_characterOrientation == Direction.Down || _characterOrientation == Direction.Up)
         {
             _characterAnimationQueue.Enqueue(_hideSpriteVertical);
@@ -97,15 +59,46 @@ public class MovementFeebdack : MonoBehaviour
 
         _characterAnimationQueue.Enqueue(_updateSpriteLogic);
         _characterAnimationQueue.Enqueue(_showSprite);
-    }
+    }   
 
-    public void OnCharacterMoved()
+    private void OnPlayerMove()
     {
         _movementFeedback.PlayFeedbacks();
-    }
+    }   
 
-    public void OnCharacterCantMove()
+    private void OnPlayerBlocked()
     {
         _cantMove.PlayFeedbacks();
+    }  
+
+    // Cheese and attack event
+    private void OnGetDaCheese() {
+
+    }  
+
+    private void OnFuryChange(bool isOnFury) {
+        if (isOnFury)
+        {
+            _currentState = CharacterState.ANGRY;
+        }
+        
+        else
+        {
+            _currentState = CharacterState.NORMAL;
+        }
+
+        _curentCharacterData = _characterList.GetData(_currentState);
+        UpdateSprite();
+    } 
+
+    private void OnSmashingEnnemy(GameObject ennemyObject) {
+
+    }  
+    #endregion
+
+    public void UpdateSprite()
+    {
+        _curentCharacterData = _characterList.GetData(_currentState);
+        _characterSpriteRenderer.sprite = _curentCharacterData.GetSprite(_characterOrientation);
     }
 }
