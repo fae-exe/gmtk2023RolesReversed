@@ -53,10 +53,15 @@ public class MapTile : MonoBehaviour
         _newState = newCheck;
     }
 
-    public void OnShowTile()
+    public void OnTileSeen()
     {
         _turnVisible.PlayFeedbacks();
         _isVisible = true;
+    }
+
+    public void OnTileNormal()
+    {
+        //
     }
 
     public MMF_Player GetSeenTrigger () 
