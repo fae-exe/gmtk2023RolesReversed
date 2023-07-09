@@ -47,13 +47,17 @@ public class MoveController : MonoBehaviour {
             Vector3 newMove = new Vector3(boxDirection.x * step.x, boxDirection.y * step.y, 0);
             OnPlayerDirection?.Invoke(GetEnumDirection(boxDirection));
             player.transform.position += newMove;
+            GridManager.instance.GetBoxInfo(playerInfo.playerPositionInGrid).isPlayer = false;
             playerInfo.playerPositionInGrid = boxToGo; 
+            GridManager.instance.GetBoxInfo(boxToGo).isPlayer = true;
             OnPlayerMove?.Invoke();
             // Check player new states (on cheese, attack)
             PlayerManager.instance.IsOnCheese(GridManager.instance.GetBoxInfo(boxToGo));
             PlayerManager.instance.IsSmashingEnnemy(GridManager.instance.GetBoxInfo(boxToGo));
-            // Next turn
-            GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
+            if(!playerInfo.isSmashing) {
+                // Next turn here
+                GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
+            }
         } else {
             OnPlayerDirection?.Invoke(GetEnumDirection(boxDirection));
             OnPlayerBlocked?.Invoke();

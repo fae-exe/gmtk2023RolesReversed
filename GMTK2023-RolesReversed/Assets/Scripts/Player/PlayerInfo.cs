@@ -7,5 +7,6 @@ public class PlayerInfo : MonoBehaviour {
     public int cheeseLevel;
     public int maxCheeseLevel;
     public bool isOnFury;
+    public bool isSmashing;
 
 }

@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7522180204586109753}
   - component: {fileID: 7522180204586109759}
-  - component: {fileID: 7522180204586109758}
   m_Layer: 0
   m_Name: EnnemyManager
   m_TagString: Untagged
@@ -82,16 +81,7 @@ MonoBehaviour:
   ennemyContainer: {fileID: 0}
   ennemyPrefab: {fileID: 3301617729846465150, guid: 296bf8e4f773107408a4eeae4089f324, type: 3}
   ennemyList: {fileID: 11400000, guid: 75f8330beedac1845a7250ada8984f64, type: 2}
---- !u!114 &7522180204586109758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7522180204586109752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11199cad76ff5c1459872fa42c118ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ennemyTurnTime: 0.7
+  isLose: 0
+  ennemyStartTime: 0.2
+  ennemyEndTime: 0.7
+  killTime: 0.2

@@ -12,6 +12,11 @@ public class EnnemyManager : MonoBehaviour {
     [SerializeField] private GameObject ennemyContainer;
     [SerializeField] private GameObject ennemyPrefab;
     public EnnemyListSO ennemyList;
+    public bool isLose;
+
+    public float ennemyStartTime;
+    public float ennemyEndTime;
+    public float killTime;
 
     // Event
     public static event Action<GameObject> OnPlayerSeen;
@@ -25,20 +30,26 @@ public class EnnemyManager : MonoBehaviour {
     private void OnEnable() {
         GameManager.OnGameStateChanged += OnGameStateChanged;
         GridManager.OnGridSetUp += OnGridSetUp;
+        PlayerManager.OnSmashingEnnemy += OnSmashingEnnemy;
     }
 
     private void OnDisable() {
         GameManager.OnGameStateChanged -= OnGameStateChanged;
         GridManager.OnGridSetUp -= OnGridSetUp;
+        PlayerManager.OnSmashingEnnemy -= OnSmashingEnnemy;
     }
     #endregion
 
 
     #region Event
     private void OnGameStateChanged(GameState state) {
-        
+
+        if(state == GameState.StartLevel) {
+            isLose = false;
+            return;
+        }        
         if(state == GameState.EnnemyTurn) {
-            StartCoroutine(PlayEnnemyTurn(EnnemyParameters.instance.ennemyTurnTime));
+            StartCoroutine(PlayEnnemyTurn());
             return;
         }
     }   
@@ -52,6 +63,17 @@ public class EnnemyManager : MonoBehaviour {
         allEnnemyInfo = allEnnemy;
         SpawnEnnemies();
     }   
+
+    private void OnSmashingEnnemy(GameObject ennemyObject) {
+        StartCoroutine(KillDaEnnemy(ennemyObject));
+    }
+
+    private IEnumerator KillDaEnnemy(GameObject ennemyObject) {
+        currentEnnemies.Remove(ennemyObject);
+        // Destroy(ennemyObject);
+        yield return new WaitForSecondsRealtime(killTime);
+        GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
+    }
     #endregion
 
 
@@ -67,21 +89,24 @@ public class EnnemyManager : MonoBehaviour {
         }        
     }
 
-    private IEnumerator PlayEnnemyTurn(float timeToWait) {
+    private IEnumerator PlayEnnemyTurn() {
 
-        yield return new WaitForSecondsRealtime(timeToWait);
+        yield return new WaitForSecondsRealtime(ennemyStartTime);
         foreach (GameObject ennemy in currentEnnemies)
         {
             EnnemyUnitScript ennemyUnitScript = ennemy.GetComponent<EnnemyUnitScript>();
             ennemyUnitScript.EnnemyPlay();
         }
-        yield return new WaitForSecondsRealtime(timeToWait);
-        // Next turn
-        GameManager.instance.UpdateGameState(GameState.PlayerTurn);
+        if(!isLose) {   
+            // Next turn
+            yield return new WaitForSecondsRealtime(ennemyEndTime);
+            GameManager.instance.UpdateGameState(GameState.PlayerTurn);
+        }
 
     }
 
     public void PlayerSeenByEnnemy(GameObject ennemyObject) {
+        isLose = true;
         OnPlayerSeen?.Invoke(ennemyObject);
         GameManager.instance.UpdateGameState(GameState.Lose);
     }

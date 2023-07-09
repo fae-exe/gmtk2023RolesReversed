@@ -26,6 +26,8 @@ public class EnnemyUnitScript : MonoBehaviour
     public void OnEnnemySpawn(EnnemyInGrid ennemy) {
         ennemyData = EnnemyManager.instance.ennemyList.ennemyDic[ennemy.ennemyType];
 
+        // Get correct
+        _ennemyType = ennemy.ennemyType;
         // Get Correct sprite
         spriteRenderer = GetComponent<SpriteRenderer>();
         northSprite = ennemyData.northSprite;
@@ -37,12 +39,16 @@ public class EnnemyUnitScript : MonoBehaviour
         ChangeSpriteToDirection(currentOrientation);
         // Get start position
         SetStartPosition(ennemy.startInGrid);
+
+        couldMove = false;
     }
 
     private void SetStartPosition(Vector2 startPosition) {
         Vector2 step = GridSetUp.instance.gridStep;
         transform.position = new Vector3(startPosition.x * step.x, startPosition.y * step.y, 0);
         currentPosition = startPosition;
+        GridManager.instance.GetBoxInfo(startPosition).isEnnemy = true;
+        GridManager.instance.GetBoxInfo(startPosition).ennemyObject = this.gameObject;
     }
     #endregion
 
@@ -74,12 +80,8 @@ public class EnnemyUnitScript : MonoBehaviour
     }
 
     private bool DoesUnitMove(EnnemyType ennemyType) {
-        switch (ennemyType) {
-            case EnnemyType.Cat:
-                return true;
-            default:
-                return false;
-        }
+        if(ennemyType == EnnemyType.Cat) return true;
+        return false;
     }
 
     private bool CouldGoOnNextBox(float range = 1) {
@@ -102,7 +104,11 @@ public class EnnemyUnitScript : MonoBehaviour
         Vector2 boxDirection = GetVectorDirection(currentOrientation);
         Vector3 newMove = new Vector3(boxDirection.x * step.x * range, boxDirection.y * step.y * range, 0);
         transform.position += newMove;
+        GridManager.instance.GetBoxInfo(currentPosition).isEnnemy = false;
+        GridManager.instance.GetBoxInfo(currentPosition).ennemyObject = null;
         currentPosition += GetVectorDirection(currentOrientation) * range;
+        GridManager.instance.GetBoxInfo(currentPosition).isEnnemy = true;
+        GridManager.instance.GetBoxInfo(currentPosition).ennemyObject = this.gameObject;
     }
     #endregion
 
