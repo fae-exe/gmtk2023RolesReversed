@@ -69,10 +69,21 @@ public class EnnemyManager : MonoBehaviour {
     }
 
     private IEnumerator KillDaEnnemy(GameObject ennemyObject) {
+        Debug.Log("Kill on ennemy");
         currentEnnemies.Remove(ennemyObject);
-        // Destroy(ennemyObject);
+        Destroy(ennemyObject);
         yield return new WaitForSecondsRealtime(killTime);
-        GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
+        if(IsPlayerWin()) {
+            GameManager.instance.UpdateGameState(GameState.Win);
+        } else {
+            GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
+        }
+    }
+
+    private bool IsPlayerWin() {
+        if(currentEnnemies.Count > 0) return false;
+        return true;
+
     }
     #endregion
 

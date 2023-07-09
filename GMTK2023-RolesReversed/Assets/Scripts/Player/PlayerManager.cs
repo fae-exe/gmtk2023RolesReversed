@@ -65,15 +65,17 @@ public class PlayerManager : MonoBehaviour {
     }
 
     public void IsSmashingEnnemy(Box box) {
-        if(!box.isEnnemy || !playerInfo.isOnFury) return;
+        if(box.isEnnemy && playerInfo.isOnFury) {
+            playerInfo.isSmashing = true;
+            playerInfo.cheeseLevel--;
+            IsOnFury();
 
-        playerInfo.isSmashing = true;
-        playerInfo.cheeseLevel--;
-        IsOnFury();
-        box.isEnnemy = false;
-        box.ennemyObject = null;
-
-        OnSmashingEnnemy?.Invoke(box.ennemyObject);
+            OnSmashingEnnemy?.Invoke(box.ennemyObject);
+            box.isEnnemy = false;
+            box.ennemyObject = null;
+        } else {
+            GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
+        }
     }
 
     public void IsOnFury() {
