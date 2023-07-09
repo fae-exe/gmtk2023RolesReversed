@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level03
   m_EditorClassIdentifier: 
   gridLevel: 0
-  gridSize: {x: 3, y: 8}
+  gridSize: {x: 3, y: 7}
   gridPlayerStart: {x: 0, y: 0}
   allEnnemy:
   - name: Felix
