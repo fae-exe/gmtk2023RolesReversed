@@ -45,9 +45,9 @@ public class MoveController : MonoBehaviour {
         if(CouldMoveOnBox(boxToGo)) {
             Vector2 step = GridSetUp.instance.gridStep;
             Vector3 newMove = new Vector3(boxDirection.x * step.x, boxDirection.y * step.y, 0);
+            OnPlayerDirection?.Invoke(GetEnumDirection(boxDirection));
             player.transform.position += newMove;
             playerInfo.playerPositionInGrid = boxToGo; 
-            OnPlayerDirection?.Invoke(GetEnumDirection(boxDirection));
             OnPlayerMove?.Invoke();
             // Check player new states (on cheese, attack)
             PlayerManager.instance.IsOnCheese(GridManager.instance.GetBoxInfo(boxToGo));

@@ -19,7 +19,7 @@ public class EnnemyUnitScript : MonoBehaviour
     public Sprite southSprite;
     public Sprite westSprite;
     private bool move;
-    public void OnEnnemySpawn()
+    public void OnEnnemySpawn(EnnemyInGrid ennemy)
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }

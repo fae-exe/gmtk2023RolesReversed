@@ -214,6 +214,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentEnnemies: []
+  allEnnemyInfo: []
+  ennemyContainer: {fileID: 0}
+  ennemyPrefab: {fileID: 3301617729846465150, guid: 296bf8e4f773107408a4eeae4089f324, type: 3}
 --- !u!1001 &379081485043177097
 PrefabInstance:
   m_ObjectHideFlags: 0

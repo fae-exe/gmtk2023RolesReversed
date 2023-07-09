@@ -6,6 +6,10 @@ public class EnnemyManager : MonoBehaviour {
     public static EnnemyManager instance;
 
     public List<GameObject> currentEnnemies;
+    
+    [SerializeField] private List<EnnemyInGrid> allEnnemyInfo = new List<EnnemyInGrid>();
+    [SerializeField] private GameObject ennemyContainer;
+    [SerializeField] private GameObject ennemyPrefab;
 
     #region Starts
     private void Awake() {
@@ -14,10 +18,12 @@ public class EnnemyManager : MonoBehaviour {
 
     private void OnEnable() {
         GameManager.OnGameStateChanged += OnGameStateChanged;
+        GridManager.OnGridSetUp += OnGridSetUp;
     }
 
     private void OnDisable() {
         GameManager.OnGameStateChanged -= OnGameStateChanged;
+        GridManager.OnGridSetUp -= OnGridSetUp;
     }
     #endregion
 
@@ -30,10 +36,27 @@ public class EnnemyManager : MonoBehaviour {
             return;
         }
     }   
+
+    private void OnGridSetUp(List<EnnemyInGrid> allEnnemy) {
+        // Reset enemmies
+        if(ennemyContainer != null) Destroy(ennemyContainer);
+        ennemyContainer = new GameObject("EnnemyContainer");
+        ennemyContainer.transform.parent = this.transform;
+
+        allEnnemyInfo = allEnnemy;
+        SpawnEnnemies();
+    }   
     #endregion
 
 
     #region Ennemy Manager
+    private void SpawnEnnemies() {
+        foreach(EnnemyInGrid ennemyInfo in allEnnemyInfo) {
+            GameObject newEnnemy = Instantiate(ennemyPrefab, transform.position, Quaternion.identity, ennemyContainer.transform);
+            newEnnemy.GetComponent<EnnemyUnitScript>().OnEnnemySpawn(ennemyInfo);
+        }        
+    }
+
     private IEnumerator PlayEnnemyTurn(float timeToWait) {
 
         yield return new WaitForSecondsRealtime(timeToWait);
@@ -57,11 +80,6 @@ public class EnnemyManager : MonoBehaviour {
         } else { 
             instance = this; 
         } 
-    }
-
-    private void SpawnEnnemies()
-    {
-
     }
 
     private void PlaceEnnemy(string ennemyID, int cellID)
