@@ -82,6 +82,7 @@ MonoBehaviour:
   allEnnemyInfo: []
   ennemyContainer: {fileID: 0}
   ennemyPrefab: {fileID: 3301617729846465150, guid: 296bf8e4f773107408a4eeae4089f324, type: 3}
+  ennemyList: {fileID: 11400000, guid: 75f8330beedac1845a7250ada8984f64, type: 2}
 --- !u!114 &7522180204586109758
 MonoBehaviour:
   m_ObjectHideFlags: 0
