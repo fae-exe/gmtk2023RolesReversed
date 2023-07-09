@@ -72,6 +72,15 @@ public class GridManager : MonoBehaviour {
         return null;
     }
 
+    public MapTile GetTileScript(Vector2 boxPosition)
+    {
+        foreach (Box box in allBox)
+        {
+            if (boxPosition == box.positionInGrid) return box.boxObject.GetComponent<MapTile>();
+        }
+        return null;
+    }
+
     private void SpawnEnnemies() {
         allEnnemy = new List<EnnemyInGrid>();
         foreach(EnnemyInGrid ennemy in GridParamaters.instance.allGrid[gridLevel].allEnnemy) {

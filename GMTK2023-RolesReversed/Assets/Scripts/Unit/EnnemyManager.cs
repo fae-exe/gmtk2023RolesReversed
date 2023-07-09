@@ -40,7 +40,7 @@ public class EnnemyManager : MonoBehaviour {
         foreach (GameObject ennemy in currentEnnemies)
         {
             EnnemyUnitScript ennemyUnitScript = ennemy.GetComponent<EnnemyUnitScript>();
-            ennemyUnitScript.EnnemyPlay();
+            //ennemyUnitScript.EnnemyPlay();
         }
         // Next turn
         // TEST IF Lose ///////////////////////////////////////////////////////
