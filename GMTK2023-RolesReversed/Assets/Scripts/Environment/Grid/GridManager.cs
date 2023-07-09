@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ public class GridManager : MonoBehaviour {
     public Vector2 gridPlayerStart;
     public List<EnnemyInGrid> allEnnemy = new List<EnnemyInGrid>();
     public List<Box> allBox = new List<Box>();
+
+    // Event
+    public static event Action<List<EnnemyInGrid>> OnGridSetUp;
 
 
     #region Starts
@@ -37,7 +41,6 @@ public class GridManager : MonoBehaviour {
         if(state == GameState.StartLevel) {
             gridSize = GridParamaters.instance.allGrid[gridLevel].gridSize;
             gridPlayerStart = GridParamaters.instance.allGrid[gridLevel].gridPlayerStart;
-            // add all Ennemy //////////////////////////////////////////////////////////////
             allBox = new List<Box>();
             foreach(Box box in GridParamaters.instance.allGrid[gridLevel].allBox) {
                 Box newBox = new Box();
@@ -48,6 +51,7 @@ public class GridManager : MonoBehaviour {
                 allBox.Add(newBox);
             }
             GridSetUp.instance.SetGrid(gridSize, gridPlayerStart, allBox);
+            SpawnEnnemies();
             return;
         }
         if(state == GameState.NextLevel) {
@@ -66,6 +70,19 @@ public class GridManager : MonoBehaviour {
             if(boxPosition == box.positionInGrid) return box;
         }
         return null;
+    }
+
+    private void SpawnEnnemies() {
+        allEnnemy = new List<EnnemyInGrid>();
+        foreach(EnnemyInGrid ennemy in GridParamaters.instance.allGrid[gridLevel].allEnnemy) {
+            EnnemyInGrid newEnnemy = new EnnemyInGrid();
+            newEnnemy.name = ennemy.name;
+            newEnnemy.ennemyType = ennemy.ennemyType;
+            newEnnemy.startInGrid = ennemy.startInGrid;
+            newEnnemy.directionStart = ennemy.directionStart;
+            allEnnemy.Add(newEnnemy);
+        }
+        OnGridSetUp?.Invoke(allEnnemy);
     }
     #endregion
 

@@ -63,7 +63,7 @@ public class EnnemyUnitScript : MonoBehaviour
     public bool CheckNextBoxContent()
     {
         Vector2 stepToAdd = new();
-        switch (currentOrientation) //on détermine la box a check en fonction de l'orientation actuel de l'unité
+        switch (currentOrientation) //on dï¿½termine la box a check en fonction de l'orientation actuel de l'unitï¿½
         {
             case Direction.Up:
                 stepToAdd = new Vector2(0 , 1);
@@ -79,15 +79,15 @@ public class EnnemyUnitScript : MonoBehaviour
                 break;
         }
         Vector2 boxToCheckCoordinates = currentPosition + stepToAdd;
-        if (CouldMoveOnBox(boxToCheckCoordinates)) //on check si l'unité peut aller sur la box
+        if (CouldMoveOnBox(boxToCheckCoordinates)) //on check si l'unitï¿½ peut aller sur la box
         {
-            //l'unité peut bouger sur la box
+            //l'unitï¿½ peut bouger sur la box
             return true;
         }
         else
         {
             return false;
-            //l'unité rencontre un obstacle OU les limites de la grille et entame un demi-tour
+            //l'unitï¿½ rencontre un obstacle OU les limites de la grille et entame un demi-tour
         }
 
     }
@@ -117,6 +117,7 @@ public class EnnemyUnitScript : MonoBehaviour
         if (boxPosition.x >= GridManager.instance.gridSize.x) return false;
         if (boxPosition.y >= GridManager.instance.gridSize.y) return false;
         if (GridManager.instance.GetBoxInfo(boxPosition).isObstacle) return false;
+        // Check if isEnnemy ????
         return true;
     }
 
