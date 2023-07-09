@@ -46,6 +46,7 @@ public class MoveController : MonoBehaviour {
             Vector2 step = GridSetUp.instance.gridStep;
             Vector3 newMove = new Vector3(boxDirection.x * step.x, boxDirection.y * step.y, 0);
             OnPlayerDirection?.Invoke(GetEnumDirection(boxDirection));
+            AudioManager.instance.PlaySound("MouseMove", 0.02f);
             player.transform.position += newMove;
             GridManager.instance.GetBoxInfo(playerInfo.playerPositionInGrid).isPlayer = false;
             playerInfo.playerPositionInGrid = boxToGo; 
