@@ -35,11 +35,13 @@ public class CheeseUI : MonoBehaviour {
     private void OnEnable() {
         GameManager.OnGameStateChanged += OnGameStateChanged;
         PlayerManager.OnGetDaCheese += OnGetDaCheese;
+        PlayerManager.OnSmashingEnnemy += OnSmashingEnnemy;
     }
 
     private void OnDisable() {
         GameManager.OnGameStateChanged -= OnGameStateChanged;
         PlayerManager.OnGetDaCheese -= OnGetDaCheese;
+        PlayerManager.OnSmashingEnnemy -= OnSmashingEnnemy;
     }
     #endregion
 
@@ -61,6 +63,10 @@ public class CheeseUI : MonoBehaviour {
 
     private void OnGetDaCheese() {
         SetCheeseUILevel();
+    }  
+
+    private void OnSmashingEnnemy(GameObject ennemyObject) {
+        SetCheeseUILevel();
     }   
     #endregion
     
@@ -76,7 +82,6 @@ public class CheeseUI : MonoBehaviour {
     }
 
     private void SetCheeseUILevel() {
-        Debug.Log("Set cheese UI Level is called");
         for(int i = 0; i < playerInfo.cheeseLevel; i++) {
             _cheeseLevelList[i].Show();
         }     

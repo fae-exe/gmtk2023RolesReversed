@@ -31,6 +31,10 @@ public class StartLevelUI : MonoBehaviour {
             startLevelUI.SetActive(true);
             return;
         }
+        if(state == GameState.NextLevel) {
+            startLevelUI.SetActive(true);
+            return;
+        }
 
         startLevelUI.SetActive(false);
     }   

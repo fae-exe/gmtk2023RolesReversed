@@ -766,6 +766,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4692752450542569086, guid: 92f7a773e379d3a43a81cd0b1abc1e78, type: 3}
+      propertyPath: allGrid.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692752450542569086, guid: 92f7a773e379d3a43a81cd0b1abc1e78, type: 3}
+      propertyPath: allGrid.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6219971ea50a59e4785543fb29f2f8f5, type: 2}
+    - target: {fileID: 4692752450542569086, guid: 92f7a773e379d3a43a81cd0b1abc1e78, type: 3}
+      propertyPath: allGrid.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 35ad775b485966d4da239927c37d92f0, type: 2}
+    - target: {fileID: 4692752450542569086, guid: 92f7a773e379d3a43a81cd0b1abc1e78, type: 3}
+      propertyPath: allGrid.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 15bb6a749b4f98b44ae57ce0782e1d23, type: 2}
     - target: {fileID: 4692752452055532174, guid: 92f7a773e379d3a43a81cd0b1abc1e78, type: 3}
       propertyPath: m_RootOrder
       value: 8

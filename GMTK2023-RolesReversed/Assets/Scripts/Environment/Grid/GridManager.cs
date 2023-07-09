@@ -54,10 +54,17 @@ public class GridManager : MonoBehaviour {
             SpawnEnnemies();
             return;
         }
+        if(state == GameState.Win) {
+            if(gridLevel >= GridParamaters.instance.allGrid.Count-1) {
+                GameManager.instance.UpdateGameState(GameState.Finish);
+                return;
+            }
+        }
         if(state == GameState.NextLevel) {
             gridLevel++;
             GameManager.instance.UpdateGameState(GameState.StartLevel);
             return;
+  
         }
         
     }   
