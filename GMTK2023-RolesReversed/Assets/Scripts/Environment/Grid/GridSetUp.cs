@@ -35,6 +35,7 @@ public class GridSetUp : MonoBehaviour {
                 MapTile boxMapTile = Instantiate(boxPrefab[0], boxPosition, Quaternion.identity, gridContainer.transform);
                 boxMapTile.Initialize(y);
                 allBox[i].boxObject = boxMapTile.gameObject;
+                if(allBox[i].isEmpty) Destroy(allBox[i].boxObject);
                 allBox[i].positionInGrid = new Vector2(x, y);
                 IsCheeseOnBox(allBox[i]);
                 IsObstacleOnBox(allBox[i]);
@@ -45,6 +46,7 @@ public class GridSetUp : MonoBehaviour {
     }
 
     private void IsObstacleOnBox(Box box) {
+        if(box.isEmpty) return;
         // Change prefab selection to random or predefine
         if(box.isObstacle) {
             GameObject newObstaclePrefab = obstaclePrefab[Random.Range(0, obstaclePrefab.Count)];

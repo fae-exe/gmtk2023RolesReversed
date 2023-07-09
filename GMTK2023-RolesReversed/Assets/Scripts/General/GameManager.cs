@@ -57,6 +57,15 @@ public class GameManager : MonoBehaviour {
     public void GoToNextLevel() {
         UpdateGameState(GameState.NextLevel);
     }
+
+    public void Restart() {
+        UpdateGameState(GameState.StartLevel);
+    }
+
+    public void Redo() {
+        GridManager.instance.gridLevel--;
+        UpdateGameState(GameState.StartLevel);
+    }
     #endregion
     
 

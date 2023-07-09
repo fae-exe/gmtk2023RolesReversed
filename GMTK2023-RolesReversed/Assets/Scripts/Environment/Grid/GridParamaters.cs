@@ -35,6 +35,7 @@ public class Box {
     public bool isObstacle;
     public bool isMakeSound;
     public bool isHiding;
+    public bool isEmpty;
     public bool isCheese;
     // Test if someone
     public bool isSeen;
