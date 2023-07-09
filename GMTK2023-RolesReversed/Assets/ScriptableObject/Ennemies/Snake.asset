@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snake
   m_EditorClassIdentifier: 
   ennemyType: 1
-  northSprite: {fileID: 0}
-  eastSprite: {fileID: 0}
-  southSprite: {fileID: 0}
-  westSprite: {fileID: 0}
+  northSprite: {fileID: -246392367, guid: 3505210a904aa794c8e39146458e6469, type: 3}
+  eastSprite: {fileID: -1262842925, guid: 3505210a904aa794c8e39146458e6469, type: 3}
+  southSprite: {fileID: 542677462, guid: 3505210a904aa794c8e39146458e6469, type: 3}
+  westSprite: {fileID: 148102165, guid: 3505210a904aa794c8e39146458e6469, type: 3}
