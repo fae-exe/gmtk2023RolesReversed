@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786036a91fecdd740927783e9e92291c, type: 3}
+  m_Name: Mouse
+  m_EditorClassIdentifier: 
+  characterState: 0
+  northSprite: {fileID: 691243054, guid: b7c988748e65dbc4fbefa8da975348fe, type: 3}
+  eastSprite: {fileID: 1111364218, guid: b7c988748e65dbc4fbefa8da975348fe, type: 3}
+  southSprite: {fileID: -2029197649, guid: b7c988748e65dbc4fbefa8da975348fe, type: 3}
+  westSprite: {fileID: 779306995, guid: b7c988748e65dbc4fbefa8da975348fe, type: 3}

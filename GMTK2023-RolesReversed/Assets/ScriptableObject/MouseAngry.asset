@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786036a91fecdd740927783e9e92291c, type: 3}
+  m_Name: MouseAngry
+  m_EditorClassIdentifier: 
+  characterState: 1
+  northSprite: {fileID: 1258285463, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
+  eastSprite: {fileID: 114329985, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
+  southSprite: {fileID: -2123205591, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
+  westSprite: {fileID: 1576577672, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
