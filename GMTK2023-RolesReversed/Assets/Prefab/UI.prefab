@@ -81,8 +81,8 @@ MonoBehaviour:
   cheeseUIObject: {fileID: 6472343053833798006}
   cheeseLevelPrefab: {fileID: 4164371973537709959, guid: da0b64fbe2263c14ab254f68afe3b2b8, type: 3}
   _cheeseUIAnimationQueue: {fileID: 2784713790332175492}
-  step: {x: 60, y: 0}
-  start: {x: 0, y: 0}
+  step: {x: 0, y: -30}
+  start: {x: -430, y: 50}
   colorEmpty: {r: 1, g: 1, b: 1, a: 1}
   colorFull: {r: 1, g: 0.83712673, b: 0, a: 1}
 --- !u!114 &734719681915246559
@@ -348,7 +348,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6472343054036548266}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

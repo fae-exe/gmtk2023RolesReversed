@@ -7,7 +7,7 @@ public class GridSetUp : MonoBehaviour {
     // Grid info
     [SerializeField] private Transform environments;
     public GameObject gridContainer;
-    [SerializeField] private List<GameObject> boxPrefab = new List<GameObject>();
+    [SerializeField] private List<MapTile> boxPrefab = new List<MapTile>();
     [SerializeField] private List<GameObject> obstaclePrefab = new List<GameObject>();
     [SerializeField] private List<GameObject> cheesePrefab = new List<GameObject>();
     public Vector2 gridStep;
@@ -31,9 +31,10 @@ public class GridSetUp : MonoBehaviour {
         for(int y = 0; y < gridSize.y; y++) {
             for(int x = 0; x < gridSize.x; x++) {
                 Vector2 boxPosition = new Vector2(x * gridStep.x, y * gridStep.y);
-                GameObject newBoxPrefab = boxPrefab[Random.Range(0, boxPrefab.Count)];
-                GameObject boxObject = Instantiate(newBoxPrefab, boxPosition, Quaternion.identity, gridContainer.transform);
-                allBox[i].boxObject = boxObject;
+//              MapTile newBoxPrefab = boxPrefab[Random.Range(0, boxPrefab.Count)];
+                MapTile boxMapTile = Instantiate(boxPrefab[0], boxPosition, Quaternion.identity, gridContainer.transform);
+                boxMapTile.Initialize(y);
+                allBox[i].boxObject = boxMapTile.gameObject;
                 allBox[i].positionInGrid = new Vector2(x, y);
                 IsCheeseOnBox(allBox[i]);
                 IsObstacleOnBox(allBox[i]);

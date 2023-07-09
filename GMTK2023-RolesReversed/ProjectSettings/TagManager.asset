@@ -38,9 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Box
     uniqueID: 291493823
     locked: 0
-  - name: Default
-    uniqueID: 0
+  - name: Decorations
+    uniqueID: 2976969277
+    locked: 0
+  - name: Tile content
+    uniqueID: 1405612035
     locked: 0

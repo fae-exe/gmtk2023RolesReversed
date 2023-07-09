@@ -195,7 +195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714510896985914750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 209, y: 98, z: -10}
+  m_LocalPosition: {x: 199, y: 88, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 3df270b1bfd75f110000000003f0c753
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -409,7 +409,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 714510897678144667}
-  - component: {fileID: 3513471531568660419}
   - component: {fileID: 9005579207920487857}
   m_Layer: 0
   m_Name: SetUp
@@ -435,27 +434,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3513471531568660419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714510897678144666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2852911d573562f4a836903e5c779c94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mode: 0
-  AmplitudeMultiplier: 1
-  SpeedMultiplier: 1
-  ParallaxLayers:
-  - Rect: {fileID: 0}
-    Speed: 0
-    Amplitude: 0
-    StartPosition: {x: 0, y: 0}
-    Active: 0
 --- !u!114 &9005579207920487857
 MonoBehaviour:
   m_ObjectHideFlags: 0

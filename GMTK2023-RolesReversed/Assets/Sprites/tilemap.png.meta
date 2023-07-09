@@ -243,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GrassTile4
+      name: Decoration2Light
       rect:
         serializedVersion: 2
         x: 520
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GrassTile5
+      name: Decoration1Light
       rect:
         serializedVersion: 2
         x: 480
@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_0
+      name: Decoration3Light
       rect:
         serializedVersion: 2
         x: 560
@@ -306,7 +306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_1
+      name: Decoration4Light
       rect:
         serializedVersion: 2
         x: 600
@@ -327,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_2
+      name: Decoration5Light
       rect:
         serializedVersion: 2
         x: 640
@@ -348,7 +348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_3
+      name: Decoration6Light
       rect:
         serializedVersion: 2
         x: 680
@@ -369,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_4
+      name: Decoration7Light
       rect:
         serializedVersion: 2
         x: 720
@@ -390,7 +390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_5
+      name: Decoration8Light
       rect:
         serializedVersion: 2
         x: 760
@@ -411,7 +411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_6
+      name: Decoration9Light
       rect:
         serializedVersion: 2
         x: 800
@@ -432,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_7
+      name: Decoration10Light
       rect:
         serializedVersion: 2
         x: 840
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_8
+      name: Decoration1Dark
       rect:
         serializedVersion: 2
         x: 480
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_9
+      name: Decoration2Dark
       rect:
         serializedVersion: 2
         x: 520
@@ -495,7 +495,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_10
+      name: Decoration3Dark
       rect:
         serializedVersion: 2
         x: 560
@@ -516,7 +516,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_11
+      name: Decoration4Dark
       rect:
         serializedVersion: 2
         x: 600
@@ -537,7 +537,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_12
+      name: Decoration5Dark
       rect:
         serializedVersion: 2
         x: 640
@@ -558,7 +558,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_13
+      name: Decoration6Dark
       rect:
         serializedVersion: 2
         x: 680
@@ -579,7 +579,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_14
+      name: Decoration7Dark
       rect:
         serializedVersion: 2
         x: 720
@@ -600,7 +600,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_15
+      name: Decoration8Dark
       rect:
         serializedVersion: 2
         x: 760
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_16
+      name: Decoration9Dark
       rect:
         serializedVersion: 2
         x: 800
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_17
+      name: Decoration10Dark
       rect:
         serializedVersion: 2
         x: 840
@@ -663,7 +663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_18
+      name: GrassTileSeen1
       rect:
         serializedVersion: 2
         x: 600
@@ -684,7 +684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_19
+      name: GrassTileSeen2
       rect:
         serializedVersion: 2
         x: 640
@@ -705,7 +705,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_20
+      name: GrassTileSeen3
       rect:
         serializedVersion: 2
         x: 680
@@ -734,7 +734,7 @@ TextureImporter:
         width: 40
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -742,6 +742,90 @@ TextureImporter:
       bones: []
       spriteID: b7b0f0750d71ad547b79b1aed23e9ff6
       internalID: -1580295767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BellsBackBase
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 528
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd5c15f68ab3954d916aeaa9efb1f4c
+      internalID: 1348749253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BellsFrontBase
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 528
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab27bc9f55689774687452ecee1561d1
+      internalID: -1661490505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BellsBackSeen
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 528
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5795937d3911643852ca2e792e9c43
+      internalID: -1489529913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BellsFrontSeen
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 528
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07be7fe3ad400aa448a36a8a72e42900
+      internalID: 720854153
       vertices: []
       indices: 
       edges: []
@@ -757,36 +841,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GrassTile4: -1982208829
-      GrassTile1: 1935019016
+      Decoration1Light: -779757690
+      Decoration8Light: -2100196276
       Obstacle1: 1696894662
-      tilemap_13: 2048178615
-      tilemap_14: -1052870980
-      tilemap_15: 578843546
-      tilemap_20: 1384639046
-      tilemap_7: 398433295
-      tilemap_19: 1970255790
-      tilemap_8: -1665264583
-      tilemap_5: -2100196276
-      tilemap_2: -1180746342
-      tilemap_3: 326422308
-      tilemap_12: 1783059301
-      tilemap_16: 107667243
-      tilemap_10: 1468697400
-      tilemap_0: 1794455063
+      Decoration9Dark: 107667243
+      Decoration9Light: 1799619277
+      Decoration7Dark: -1052870980
+      Decoration10Dark: 73152021
+      Decoration2Dark: 484409071
+      GrassTileSeen1: 1044777814
+      Decoration5Light: -1180746342
+      Decoration2Light: -1982208829
+      Decoration3Light: 1794455063
+      Decoration4Light: -1107281786
+      Decoration6Dark: 2048178615
+      Decoration10Light: 398433295
+      Decoration5Dark: 1783059301
+      Decoration3Dark: 1468697400
+      BellsBackSeen: -1489529913
+      BellsFrontBase: -1661490505
+      BellsBackBase: 1348749253
       GrassTile2: 2140111241
-      GrassTile5: -779757690
-      tilemap_18: 1044777814
-      tilemap_17: 73152021
+      Decoration8Dark: 578843546
+      Decoration7Light: 1509438160
       Background: -1392602819
-      tilemap_6: 1799619277
-      tilemap_9: 484409071
-      tilemap_11: -851388834
-      tilemap_4: 1509438160
+      Decoration1Dark: -1665264583
+      GrassTileSeen2: 1970255790
+      BellsFrontSeen: 720854153
+      Decoration6Light: 326422308
+      Decoration4Dark: -851388834
+      GrassTileSeen3: 1384639046
       GrassTile3: -544955328
       Cheese1: 1631032296
       CHEESE: 707117430
-      tilemap_1: -1107281786
+      GrassTile1: 1935019016
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
