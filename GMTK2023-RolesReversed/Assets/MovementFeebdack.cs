@@ -17,6 +17,59 @@ public class MovementFeebdack : MonoBehaviour
 
     private CharacterDataSO _curentCharacterData;
 
+
+    #region Starts    
+    private void OnEnable() {
+        MoveController.OnPlayerDirection += OnPlayerDirection;
+        MoveController.OnPlayerMove += OnPlayerMove;
+        MoveController.OnPlayerBlocked += OnPlayerBlocked;
+
+        PlayerManager.OnGetDaCheese += OnGetDaCheese;
+        PlayerManager.OnFuryChange += OnFuryChange;
+        PlayerManager.OnSmashingEnnemy += OnSmashingEnnemy;
+    }
+
+    private void OnDisable() {
+        MoveController.OnPlayerDirection -= OnPlayerDirection;
+        MoveController.OnPlayerMove -= OnPlayerMove;
+        MoveController.OnPlayerBlocked -= OnPlayerBlocked;
+        
+        PlayerManager.OnGetDaCheese -= OnGetDaCheese;
+        PlayerManager.OnFuryChange -= OnFuryChange;
+        PlayerManager.OnSmashingEnnemy -= OnSmashingEnnemy;
+    }
+    #endregion
+
+    
+    #region Player Event
+    // Movement events below
+    private void OnPlayerDirection(Direction newOrientation) {
+        // OnOrientationChanged(newOrientation);
+    }   
+
+    private void OnPlayerMove() {
+        // OnCharacterMoved();
+    }   
+
+    private void OnPlayerBlocked() {
+        // OnCharacterCantMove();
+    }  
+
+    // Cheese and attack event
+    private void OnGetDaCheese() {
+
+    }  
+
+    private void OnFuryChange(bool isOnFury) {
+
+    } 
+
+    private void OnSmashingEnnemy(GameObject ennemyObject) {
+
+    }  
+    #endregion
+
+
     public void OnStateChanged(CharacterState newState)
     {
         _currentState = newState;
@@ -24,12 +77,12 @@ public class MovementFeebdack : MonoBehaviour
         UpdateSprite();
     }
 
-    public void UpdateSprite ()
+    public void UpdateSprite()
     {
         _characterSpriteRenderer.sprite = _curentCharacterData.GetSprite(_characterOrientation);
     }
 
-    public void OnOrientationChanged (Direction newOrientation)
+    public void OnOrientationChanged(Direction newOrientation)
     {
         if (_characterOrientation == Direction.Down || _characterOrientation == Direction.Up)
         {
@@ -46,7 +99,7 @@ public class MovementFeebdack : MonoBehaviour
         _characterAnimationQueue.Enqueue(_showSprite);
     }
 
-    public void OnCharacterMoved ()
+    public void OnCharacterMoved()
     {
         _movementFeedback.PlayFeedbacks();
     }

@@ -37,6 +37,7 @@ public class Box {
     public bool isHiding;
     public bool isCheese;
     // Test if someone
+    public bool isSeen;
     public bool isPlayer;
     public bool isEnnemy;
     public GameObject ennemyObject;

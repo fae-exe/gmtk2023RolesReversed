@@ -8,7 +8,9 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField] private Transform player;
     [SerializeField] private PlayerInfo playerInfo;
 
-    // Ennemy
+    // Event
+    public static event Action OnGetDaCheese;
+    public static event Action<bool> OnFuryChange;
     public static event Action<GameObject> OnSmashingEnnemy;
 
 
@@ -31,7 +33,8 @@ public class PlayerManager : MonoBehaviour {
     private void OnGameStateChanged(GameState state) {
         
         if(state == GameState.StartLevel) {
-            CheeseUI.instance.SetCheeseUI(playerInfo.maxCheeseLevel);
+            playerInfo.cheeseLevel = 0;
+            OnGetDaCheese?.Invoke();
             return;
         }
         
@@ -50,25 +53,37 @@ public class PlayerManager : MonoBehaviour {
         if(!box.isCheese) return;
 
         playerInfo.cheeseLevel++;
-        CheeseUI.instance.SetCheeseUILevel(playerInfo.maxCheeseLevel, playerInfo.cheeseLevel);
+        OnGetDaCheese?.Invoke();
         IsOnFury();
 
+        // MAYBE TO SWITCH PLACE TO ADD AN ANIM OF CHEESE DESTROY ??
         box.isCheese = false;
         Destroy(box.cheeseObject);
     }
 
     public void IsSmashingEnnemy(Box box) {
-        if(!box.isEnnemy || !playerInfo.isAttacking) return;
+        if(!box.isEnnemy || !playerInfo.isOnFury) return;
 
         playerInfo.cheeseLevel--;
-        CheeseUI.instance.SetCheeseUILevel(playerInfo.maxCheeseLevel, playerInfo.cheeseLevel);
         IsOnFury();
 
         OnSmashingEnnemy?.Invoke(box.ennemyObject);
     }
 
     public void IsOnFury() {
-        playerInfo.isAttacking = playerInfo.cheeseLevel > 0 ? true : false;
+        if(playerInfo.isOnFury) {
+            // Is already on fury and check if lose all cheese
+            if(playerInfo.cheeseLevel == 0) {
+                OnFuryChange?.Invoke(false);
+                playerInfo.isOnFury = false;
+            } 
+        } else {
+            // Is not already on fury and check if add at least one cheese
+            if(playerInfo.cheeseLevel > 0) {
+                OnFuryChange?.Invoke(true);
+                playerInfo.isOnFury = true;
+            } 
+        }
     }
     #endregion
 

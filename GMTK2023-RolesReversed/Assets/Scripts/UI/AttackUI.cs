@@ -51,7 +51,7 @@ public class AttackUI : MonoBehaviour {
 
     #region Attack UI
     public void RefreshAttackUI() {
-        if(playerInfo.isAttacking) {
+        if(playerInfo.isOnFury) {
             attackText.text = isAttackText;
         } else {
             attackText.text = isNonAttackText;

@@ -28,36 +28,46 @@ public class CheeseUI : MonoBehaviour {
         CheckInstance();
     }
 
+    private void Start() {
+        SetCheeseUI();
+    }
+
     private void OnEnable() {
         GameManager.OnGameStateChanged += OnGameStateChanged;
+        PlayerManager.OnGetDaCheese += OnGetDaCheese;
     }
 
     private void OnDisable() {
         GameManager.OnGameStateChanged -= OnGameStateChanged;
+        PlayerManager.OnGetDaCheese -= OnGetDaCheese;
     }
     #endregion
 
 
     #region Event
     private void OnGameStateChanged(GameState state) {
-        
+         
         if(state == GameState.PlayerTurn) {
-            cheeseUIObject.SetActive(true);
+            // cheeseUIObject.SetActive(true);
             return;
         }
         if(state == GameState.EnnemyTurn) {
-            cheeseUIObject.SetActive(true);
+            // cheeseUIObject.SetActive(true);
             return;
         }
 
-        cheeseUIObject.SetActive(true);
+        // cheeseUIObject.SetActive(true);
+    }   
+
+    private void OnGetDaCheese() {
+        SetCheeseUILevel();
     }   
     #endregion
     
 
     #region Cheese UI
-    public void SetCheeseUI(int maxCheeseLevel) {
-        for(int i = 0; i < maxCheeseLevel; i++) {
+    private void SetCheeseUI() {
+        for(int i = 0; i < playerInfo.maxCheeseLevel; i++) {
             Vector3 newPosition = cheeseUIObject.transform.position + new Vector3(i * step.x - start.x, i * step.y - start.y, 0);
             CheeseLevel newCheeseLevel = Instantiate(cheeseLevelPrefab, newPosition, Quaternion.identity, cheeseUIObject.transform);
             newCheeseLevel.Initialize(_cheeseUIAnimationQueue);
@@ -65,12 +75,12 @@ public class CheeseUI : MonoBehaviour {
         }        
     }
 
-    public void SetCheeseUILevel(int maxCheeseLevel, int playerCheese) {
+    private void SetCheeseUILevel() {
         Debug.Log("Set cheese UI Level is called");
-        for(int i = 0; i < playerCheese; i++) {
+        for(int i = 0; i < playerInfo.cheeseLevel; i++) {
             _cheeseLevelList[i].Show();
         }     
-        for(int i = playerCheese; i < maxCheeseLevel; i++) {
+        for(int i = playerInfo.cheeseLevel; i < playerInfo.maxCheeseLevel; i++) {
             _cheeseLevelList[i].Hide();
         }           
     }

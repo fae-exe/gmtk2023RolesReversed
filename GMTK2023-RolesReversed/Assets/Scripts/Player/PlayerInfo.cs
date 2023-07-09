@@ -6,6 +6,6 @@ public class PlayerInfo : MonoBehaviour {
     public Vector2 playerPositionInGrid;
     public int cheeseLevel;
     public int maxCheeseLevel;
-    public bool isAttacking;
+    public bool isOnFury;
 
 }

@@ -189,6 +189,9 @@ MonoBehaviour:
   - {fileID: 1935019016, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 2140111241, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: -544955328, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 1044777814, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 1970255790, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 1384639046, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   _tileDecorationSpritesArray:
   - {fileID: -779757690, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: -1982208829, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
@@ -200,3 +203,5 @@ MonoBehaviour:
   - {fileID: -2100196276, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 1799619277, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 398433295, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  _tilesSpriteNumber: 0
+  _isVisible: 0

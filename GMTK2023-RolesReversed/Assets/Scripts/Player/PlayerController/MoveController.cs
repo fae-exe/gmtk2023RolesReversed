@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,11 @@ public class MoveController : MonoBehaviour {
     // Player info
     [SerializeField] private Transform player;
     [SerializeField] private PlayerInfo playerInfo;
+
+    // Event
+    public static event Action<Direction> OnPlayerDirection;
+    public static event Action OnPlayerMove;
+    public static event Action OnPlayerBlocked;
 
     
     #region Starts
@@ -41,13 +47,16 @@ public class MoveController : MonoBehaviour {
             Vector3 newMove = new Vector3(boxDirection.x * step.x, boxDirection.y * step.y, 0);
             player.transform.position += newMove;
             playerInfo.playerPositionInGrid = boxToGo; 
+            OnPlayerDirection?.Invoke(GetEnumDirection(boxDirection));
+            OnPlayerMove?.Invoke();
             // Check player new states (on cheese, attack)
             PlayerManager.instance.IsOnCheese(GridManager.instance.GetBoxInfo(boxToGo));
             PlayerManager.instance.IsSmashingEnnemy(GridManager.instance.GetBoxInfo(boxToGo));
             // Next turn
             GameManager.instance.UpdateGameState(GameState.EnnemyTurn);
         } else {
-            // Ad visuale effect
+            OnPlayerDirection?.Invoke(GetEnumDirection(boxDirection));
+            OnPlayerBlocked?.Invoke();
             Debug.Log("Can't go on this box !");
         }
         
@@ -77,12 +86,22 @@ public class MoveController : MonoBehaviour {
         return new Vector2(x, y);
     }
 
+    private Direction GetEnumDirection(Vector2 vectorDirection) {
+        if(vectorDirection.x == 0 && vectorDirection.y == 1) return Direction.Up;
+        if(vectorDirection.x == 1 && vectorDirection.y == 0) return Direction.Right;
+        if(vectorDirection.x == 0 && vectorDirection.y == -1) return Direction.Down;
+        if(vectorDirection.x == -1 && vectorDirection.y == 0) return Direction.Left;
+        
+        Debug.Log(vectorDirection + " is not good, so Direction.Right by default");
+        return Direction.Right;
+    }
+
     private bool CouldMoveOnBox(Vector2 boxPosition) {
         if(boxPosition.x < 0 || boxPosition.y < 0) return false;
         if(boxPosition.x >= GridManager.instance.gridSize.x) return false;
         if(boxPosition.y >= GridManager.instance.gridSize.y) return false;
         if(GridManager.instance.GetBoxInfo(boxPosition).isObstacle) return false;
-        if(GridManager.instance.GetBoxInfo(boxPosition).isEnnemy && !playerInfo.isAttacking) return false;
+        if(GridManager.instance.GetBoxInfo(boxPosition).isEnnemy && !playerInfo.isOnFury) return false;
         return true;
     }
     #endregion

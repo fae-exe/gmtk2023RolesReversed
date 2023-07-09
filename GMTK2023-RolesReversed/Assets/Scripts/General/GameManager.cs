@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour {
                 break;
             case GameState.Win:
                 break;
+            case GameState.NextLevel:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
@@ -50,8 +52,8 @@ public class GameManager : MonoBehaviour {
         UpdateGameState(GameState.PlayerTurn);
     }
 
-    public void NextLevel() {
-        UpdateGameState(GameState.StartLevel);
+    public void GoToNextLevel() {
+        UpdateGameState(GameState.NextLevel);
     }
     #endregion
     
@@ -73,5 +75,6 @@ public enum GameState {
     PlayerTurn,
     EnnemyTurn,
     Lose,
-    Win
+    Win,
+    NextLevel
 }

@@ -50,8 +50,9 @@ public class GridManager : MonoBehaviour {
             GridSetUp.instance.SetGrid(gridSize, gridPlayerStart, allBox);
             return;
         }
-        if(state == GameState.Win) {
+        if(state == GameState.NextLevel) {
             gridLevel++;
+            GameManager.instance.UpdateGameState(GameState.StartLevel);
             return;
         }
         
