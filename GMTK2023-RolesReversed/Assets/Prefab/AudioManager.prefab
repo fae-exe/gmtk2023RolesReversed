@@ -49,7 +49,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 48b758f2b11b8e444a1475810f945e20, type: 3}
     isLooping: 1
-    volume: 0.2
+    volume: 0.15
     pitch: 1
     audioSource: {fileID: 0}
   - name: MetalMusique
