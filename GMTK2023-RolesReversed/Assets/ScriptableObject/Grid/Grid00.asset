@@ -18,7 +18,7 @@ MonoBehaviour:
   allEnnemy:
   - name: Felix
     ennemyType: 0
-    startInGrid: {x: 2, y: 2}
+    startInGrid: {x: 1, y: 3}
     directionStart: 0
   allBox:
   - name: 

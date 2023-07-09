@@ -80,7 +80,10 @@ public class GridManager : MonoBehaviour {
         }
         return null;
     }
+    #endregion
 
+
+    #region Ennemy
     private void SpawnEnnemies() {
         allEnnemy = new List<EnnemyInGrid>();
         foreach(EnnemyInGrid ennemy in GridParamaters.instance.allGrid[gridLevel].allEnnemy) {

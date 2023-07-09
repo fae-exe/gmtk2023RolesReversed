@@ -67,16 +67,15 @@ public class EnnemyManager : MonoBehaviour {
         }        
     }
 
-
-
     private IEnumerator PlayEnnemyTurn(float timeToWait) {
 
         yield return new WaitForSecondsRealtime(timeToWait);
         foreach (GameObject ennemy in currentEnnemies)
         {
             EnnemyUnitScript ennemyUnitScript = ennemy.GetComponent<EnnemyUnitScript>();
-            //ennemyUnitScript.EnnemyPlay();
+            ennemyUnitScript.EnnemyPlay();
         }
+        yield return new WaitForSecondsRealtime(timeToWait);
         // Next turn
         GameManager.instance.UpdateGameState(GameState.PlayerTurn);
 
