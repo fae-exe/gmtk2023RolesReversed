@@ -149,6 +149,7 @@ public class EnnemyUnitScript : MonoBehaviour
         if (boxPosition.x >= GridManager.instance.gridSize.x) return false;
         if (boxPosition.y >= GridManager.instance.gridSize.y) return false;
         if (GridManager.instance.GetBoxInfo(boxPosition).isObstacle) return false;
+        if (GridManager.instance.GetBoxInfo(boxPosition).isCheese) return false;
         return true;
     }
     #endregion
