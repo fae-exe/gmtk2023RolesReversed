@@ -1,36 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class MapTile : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _tileSpriteRenderer, _tileDecorationRenderer;
+    [SerializeField] private SpriteRenderer _tileSpriteRenderer, _tileDecorationRenderer, _tileSpriteHighlitRenderer, _tileDecorationHighlitRenderer;
 
     [SerializeField] private int _decorationChance;
 
     [SerializeField] private Sprite[] _tileSpritesArray = new Sprite[0];
-    [SerializeField] private Sprite[] _tileDecorationSpritesArray = new Sprite[0];
+    [SerializeField] private Sprite[] _tileSpriteSeenArray = new Sprite[0];
 
-    [SerializeField] private int _tilesSpriteNumber;
-    [SerializeField] private bool _isVisible;
+    [SerializeField] private Sprite[] _tileDecorationSpritesArray = new Sprite[0];
+    [SerializeField] private Sprite[] _tileDecorationSeenSpritesArray = new Sprite[0];
+
+    [SerializeField] private int _tilesSpriteNumber, _tileDecorationNumber;
+    [SerializeField] private bool _isVisible, _newState, _hasDecoration;
+
+    [SerializeField] private MMF_Player _turnVisible, _turnVisibleLogic, _turnNormal;
 
 
     public void Initialize(int row)
     {
-        int decorationRNG  = Random.Range(0, 100);
+        int decorationRNG = Random.Range(0, 100);
 
         if (decorationRNG <= _decorationChance)
         {
+            _hasDecoration = true;
             _tileDecorationRenderer.gameObject.SetActive(true);
-            _tileDecorationRenderer.sprite = _tileDecorationSpritesArray[Random.Range(0, _tileDecorationSpritesArray.Length)];
+            _tileDecorationNumber = Random.Range(0, _tileDecorationSpritesArray.Length);
+            _tileDecorationRenderer.sprite = _tileDecorationSpritesArray[_tileDecorationNumber];
+            _tileSpriteHighlitRenderer.sprite = _tileDecorationSeenSpritesArray[_tileDecorationNumber];
         }
         else
         {
+            _hasDecoration = false;
             _tileDecorationRenderer.gameObject.SetActive(false);
         }
 
         _tilesSpriteNumber = Random.Range(0, _tileSpritesArray.Length);
         _tileSpriteRenderer.sprite = _tileSpritesArray[_tilesSpriteNumber];
+        _tileSpriteHighlitRenderer.sprite = _tileSpriteSeenArray[_tilesSpriteNumber];
 
         _tileSpriteRenderer.sortingOrder = 10 - row;
 
@@ -39,17 +50,17 @@ public class MapTile : MonoBehaviour
     }
 
     public void IsBecomeVisible(bool newCheck) {
-        if(_isVisible != newCheck) { // Check if change in box state
-            if(_isVisible) { // if becoming non visible, remove length of tileArray and get non highlighted tile
-                _tilesSpriteNumber -= _tileSpritesArray.Length;
-                _tileSpriteRenderer.sprite = _tileSpritesArray[_tilesSpriteNumber];
-                _isVisible = false;
-            } else { // if becoming visible, add length of tileArray and get highlighted tile
-                _tilesSpriteNumber += _tileSpritesArray.Length;
-                _tileSpriteRenderer.sprite = _tileSpritesArray[_tilesSpriteNumber];
-                _isVisible = true;
-            }
-        }
+        _newState = newCheck;
+    }
 
+    public void OnShowTile()
+    {
+        _turnVisible.PlayFeedbacks();
+        _isVisible = true;
+    }
+
+    public MMF_Player GetSeenTrigger () 
+    {
+        return _turnVisibleLogic;
     }
 }

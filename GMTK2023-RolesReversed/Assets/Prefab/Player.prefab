@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 3327148644483143730}
   - component: {fileID: 1679154399917460720}
   m_Layer: 0
-  m_Name: SwapSpriteLogic
+  m_Name: UpdateSpriteLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,7 +1147,7 @@ MonoBehaviour:
   playerPositionInGrid: {x: 0, y: 0}
   cheeseLevel: 0
   maxCheeseLevel: 5
-  isAttacking: 0
+  isOnFury: 0
 --- !u!1 &1781950829371092642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   _showSprite: {fileID: 5869358899926586722}
   _updateSpriteLogic: {fileID: 1679154399917460720}
   _movementFeedback: {fileID: 5808713309284192769}
-  _cantMove: {fileID: 0}
+  _cantMove: {fileID: 1707774272868794259}
 --- !u!114 &5929759579888104442
 MonoBehaviour:
   m_ObjectHideFlags: 0

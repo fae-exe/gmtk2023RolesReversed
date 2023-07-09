@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterState: 1
   northSprite: {fileID: 1258285463, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
-  eastSprite: {fileID: 114329985, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
+  eastSprite: {fileID: 1576577672, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
   southSprite: {fileID: -2123205591, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
-  westSprite: {fileID: 1576577672, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}
+  westSprite: {fileID: 114329985, guid: 2f9d2b2ed57d35a4692e9c8e9fdf15a4, type: 3}

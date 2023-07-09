@@ -1,5 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1805671162640275263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7228376403190839239}
+  m_Layer: 0
+  m_Name: FEEL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7228376403190839239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805671162640275263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6186973912342832847}
+  - {fileID: 3819104468836083892}
+  m_Father: {fileID: 2385758890039456060}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2491185281881880346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6186973912342832847}
+  m_Layer: 0
+  m_Name: TurnSeen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6186973912342832847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491185281881880346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7228376403190839239}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2947024201101744207
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +148,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3366719432013798167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3819104468836083892}
+  m_Layer: 0
+  m_Name: TurnSeenLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3819104468836083892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3366719432013798167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7228376403190839239}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5594578860732283792
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +210,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3168528852085000429}
+  - {fileID: 7228376403190839239}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -189,6 +285,7 @@ MonoBehaviour:
   - {fileID: 1935019016, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 2140111241, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: -544955328, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  _tileSpriteSeenArray:
   - {fileID: 1044777814, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 1970255790, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 1384639046, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
@@ -203,5 +300,18 @@ MonoBehaviour:
   - {fileID: -2100196276, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 1799619277, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   - {fileID: 398433295, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  _tileDecorationSeenSpritesArray:
+  - {fileID: -1665264583, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 484409071, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 1468697400, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: -851388834, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 1783059301, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 2048178615, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: -1052870980, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 578843546, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 107667243, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
+  - {fileID: 73152021, guid: 07b53e4e79d342348912fbb64a69722a, type: 3}
   _tilesSpriteNumber: 0
+  _tileDecorationNumber: 0
   _isVisible: 0
+  _hasDecoration: 0
