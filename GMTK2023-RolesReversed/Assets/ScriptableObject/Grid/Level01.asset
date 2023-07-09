@@ -19,7 +19,7 @@ MonoBehaviour:
   - name: Jupiter
     ennemyType: 1
     startInGrid: {x: 0, y: 3}
-    directionStart: 2
+    directionStart: 0
   allBox:
   - name: 
     text1: 

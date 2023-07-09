@@ -82,6 +82,6 @@ MonoBehaviour:
   ennemyPrefab: {fileID: 3301617729846465150, guid: 296bf8e4f773107408a4eeae4089f324, type: 3}
   ennemyList: {fileID: 11400000, guid: 75f8330beedac1845a7250ada8984f64, type: 2}
   isLose: 0
-  ennemyStartTime: 0.2
-  ennemyEndTime: 0.7
+  ennemyStartTime: 0.01
+  ennemyEndTime: 0.35
   killTime: 0.2
