@@ -20,30 +20,194 @@ public class EnnemyUnitScript : MonoBehaviour
     public Sprite eastSprite;
     public Sprite southSprite;
     public Sprite westSprite;
-    private bool move;
-    public void OnEnnemySpawn(EnnemyInGrid ennemy)
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+    private bool couldMove;
 
+    #region Ennemy Start
+    public void OnEnnemySpawn(EnnemyInGrid ennemy) {
         ennemyData = EnnemyManager.instance.ennemyList.ennemyDic[ennemy.ennemyType];
 
+        // Get Correct sprite
+        spriteRenderer = GetComponent<SpriteRenderer>();
         northSprite = ennemyData.northSprite;
         eastSprite = ennemyData.eastSprite;
         southSprite = ennemyData.southSprite;
         westSprite = ennemyData.westSprite;
-
+        // Get correct direction
         currentOrientation = ennemy.directionStart;
-        currentPosition = ennemy.startInGrid;
-        ChangeSpriteTo(currentOrientation);
-
+        ChangeSpriteToDirection(currentOrientation);
+        // Get start position
+        SetStartPosition(ennemy.startInGrid);
     }
 
-    public void OnNoiseHeard()
-    {
-
+    private void SetStartPosition(Vector2 startPosition) {
+        Vector2 step = GridSetUp.instance.gridStep;
+        transform.position = new Vector3(startPosition.x * step.x, startPosition.y * step.y, 0);
+        currentPosition = startPosition;
     }
-    public void EnnemyPlay()
-    {
+    #endregion
+
+
+    #region Ennemy Play
+    public void EnnemyPlay() {
+        // IsHeardSomething();
+        IsEnnemyMove();
+        IsPlayerInView();
+
+        if(!couldMove) return;
+
+        MoveUnit();
+        couldMove = false;
+    }
+    #endregion
+
+
+    #region Move
+    private void IsEnnemyMove() {
+        if(!DoesUnitMove(_ennemyType)) return;
+
+        if(CouldGoOnNextBox()) {
+            couldMove = true;
+        } else {
+            couldMove = false;
+            ChangeOrientationTowards(Uturn(currentOrientation));
+        }
+    }
+
+    private bool DoesUnitMove(EnnemyType ennemyType) {
+        switch (ennemyType) {
+            case EnnemyType.Cat:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private bool CouldGoOnNextBox(float range = 1) {
+        Vector2 boxToGo = currentPosition + GetVectorDirection(currentOrientation) * range;
+        return(CouldMoveOnBox(boxToGo));
+        // could go on new box or make turn in opposite direction
+    }
+
+    private bool CouldMoveOnBox(Vector2 boxPosition) {
+        if (boxPosition.x < 0 || boxPosition.y < 0) return false;
+        if (boxPosition.x >= GridManager.instance.gridSize.x) return false;
+        if (boxPosition.y >= GridManager.instance.gridSize.y) return false;
+        if (GridManager.instance.GetBoxInfo(boxPosition).isObstacle) return false;
+        if (GridManager.instance.GetBoxInfo(boxPosition).isCheese) return false;
+        return true;
+    }
+    
+    private void MoveUnit(float range = 1) {
+        Vector2 step = GridSetUp.instance.gridStep;
+        Vector2 boxDirection = GetVectorDirection(currentOrientation);
+        Vector3 newMove = new Vector3(boxDirection.x * step.x * range, boxDirection.y * step.y * range, 0);
+        transform.position += newMove;
+        currentPosition += GetVectorDirection(currentOrientation) * range;
+    }
+    #endregion
+
+
+    #region Sight
+    void IsPlayerInView() {
+        Vector2 currentBoxSeen = currentPosition;
+        // Loop on ennemy front box until end or obstacle
+        for(int i = 0; i < GetMaxBoxSeen(); i++) {
+            Vector2 boxToSee = currentBoxSeen + GetVectorDirection(currentOrientation);
+            if(!CouldSeeOnBox(boxToSee)) return;
+
+            MapTile seenBox = GridManager.instance.GetTileScript(boxToSee);
+            seenBox.GetSeenTrigger().PlayFeedbacks();
+
+            if(GridManager.instance.GetBoxInfo(boxToSee).isPlayer) {
+                Debug.Log("Player seen !");
+                EnnemyManager.instance.PlayerSeenByEnnemy(this.gameObject);
+                return;
+            } else {
+                currentBoxSeen = boxToSee;
+            }            
+        }       
+    }
+
+    private int GetMaxBoxSeen() {
+        int maxBoxSeen = 0;
+        if(currentOrientation == Direction.Left || currentOrientation == Direction.Right) {
+            maxBoxSeen = (int)GridManager.instance.gridSize.x;
+        } else {
+            maxBoxSeen = (int)GridManager.instance.gridSize.y;
+        }
+        return maxBoxSeen;
+    }
+
+    private bool CouldSeeOnBox(Vector2 boxPosition) {
+        if (boxPosition.x < 0 || boxPosition.y < 0) return false;
+        if (boxPosition.x >= GridManager.instance.gridSize.x) return false;
+        if (boxPosition.y >= GridManager.instance.gridSize.y) return false;
+        if (GridManager.instance.GetBoxInfo(boxPosition).isObstacle) return false;
+        return true;
+    }
+    #endregion
+
+
+    #region Direction
+    private void ChangeSpriteToDirection(Direction orientation) {
+        switch (orientation) {
+            case Direction.Up:
+                spriteRenderer.sprite = northSprite;
+                break;
+            case Direction.Right:
+                spriteRenderer.sprite = eastSprite;
+                break;
+            case Direction.Down:
+                spriteRenderer.sprite = southSprite;
+                break;
+            case Direction.Left:
+                spriteRenderer.sprite = westSprite;
+                break;
+        }
+    }
+
+    private void ChangeOrientationTowards(Direction direction) {
+        currentOrientation = direction;
+        ChangeSpriteToDirection(direction);
+        //Rajouter feel la
+    }
+
+    private Direction Uturn(Direction direction) {
+        switch (direction) {
+            case Direction.Up:
+                return Direction.Down;
+            case Direction.Down:
+                return Direction.Up;
+            case Direction.Left:
+                return Direction.Right;
+            default:
+                return Direction.Left;
+        }
+    }
+
+    private Vector2 GetVectorDirection(Direction orientation) {
+        Vector2 newOrientation = Vector2.zero;
+        switch (orientation) {
+            case Direction.Up:
+                newOrientation = new Vector2(0, 1);
+                break;
+            case Direction.Left:
+                newOrientation = new Vector2(-1, 0);
+                break;
+            case Direction.Down:
+                newOrientation = new Vector2(0, -1);
+                break;
+            case Direction.Right:
+                newOrientation = new Vector2(1, 0);
+                break;
+        }
+        return newOrientation;
+    }
+    #endregion
+
+
+    #region Noise
+    private void IsHeardSomething() {
         //audio event cases
         if (ennemyState == EnnemyState.heard)
         {
@@ -59,63 +223,9 @@ public class EnnemyUnitScript : MonoBehaviour
             ennemyState = EnnemyState.play; //we go back to standard behavior
 
         }
-
-
-        //normal behavior
-        else if (DoesUnitMove(_ennemyType))
-        {
-            if (!CheckNextBoxContent())
-            {
-                ChangeOrientationTowards(Uturn(currentOrientation));
-            }
-            else
-            {
-                move = true;
-            }
-        }
-
-        //CheckSight(currentOrientation);
-
-        if (move) MoveUnit(currentOrientation);
-        move = false;
-
-
     }
 
-    public bool CheckNextBoxContent(float range = 1)
-    {
-        Vector2 stepToAdd = new();
-        switch (currentOrientation) //on d�termine la box a check en fonction de l'orientation actuel de l'unit�
-        {
-            case Direction.Up:
-                stepToAdd = new Vector2(0 , 1);
-                break;
-            case Direction.Left:
-                stepToAdd = new Vector2(-1 , 0);
-                break;
-            case Direction.Down:
-                stepToAdd = new Vector2(0 , -1);
-                break;
-            case Direction.Right:
-                stepToAdd = new Vector2(1 , 0);
-                break;
-        }
-        Vector2 boxToCheckCoordinates = currentPosition + stepToAdd * range;
-        if (CouldMoveOnBox(boxToCheckCoordinates)) //on check si l'unit� peut aller sur la box
-        {
-            //l'unit� peut bouger sur la box
-            return true;
-        }
-        else
-        {
-            return false;
-            //l'unit� rencontre un obstacle OU les limites de la grille et entame un demi-tour
-        }
-
-    }
-
-    Direction DirectionOfNoise(Vector2 positionOfAudioEvent)
-    {
+    private Direction DirectionOfNoise(Vector2 positionOfAudioEvent) {
         Direction direction;
         if(Mathf.Abs(positionOfAudioEvent.x) < Mathf.Abs(positionOfAudioEvent.y)) //x est plus proche
         {
@@ -142,152 +252,12 @@ public class EnnemyUnitScript : MonoBehaviour
         }
         return direction;
     }
-
-    void ChangeOrientationTowards(Direction direction)
-    {
-        currentOrientation = direction;
-        ChangeSpriteTo(direction);
-        //Rajouter feel la
-    }
-
-    void CheckSight(Direction direction)
-    {
-        bool keepChecking = true;
-        float i = 1;
-        Vector2 stepToAdd = new();
-        switch (direction) //on d�termine la box a check en fonction de l'orientation actuel de l'unit�
-        {
-            case Direction.Up:
-                stepToAdd = new Vector2(0, 1);
-                break;
-            case Direction.Left:
-                stepToAdd = new Vector2(-1, 0);
-                break;
-            case Direction.Down:
-                stepToAdd = new Vector2(0, -1);
-                break;
-            case Direction.Right:
-                stepToAdd = new Vector2(1, 0);
-                break;
-        }
-
-        List<MapTile> tilesChecked = new();
-        while (keepChecking)
-        {
-
-            Vector2 boxPosition = currentPosition + stepToAdd * i;
-            MapTile tileToCheck = GridManager.instance.GetTileScript(boxPosition);
-            if (!CheckNextBoxContent(i))
-            {
-                keepChecking = false;
-            }
-            else
-            {
-                tilesChecked.Add(tileToCheck);
-                Debug.Log(tileToCheck.gameObject.name +"seen.");
-            }
-
-            if (GridManager.instance.GetBoxInfo(boxPosition).isPlayer)
-            {
-                //EnnemyManager.instance.PlayerSeenByEnnemy(this)
-            }
-        }
-       
-    }
-
-    Direction Uturn(Direction direction)
-    {
-        switch (direction)
-        {
-            case Direction.Up:
-                return Direction.Down;
-            case Direction.Down:
-                return Direction.Up;
-            case Direction.Left:
-                return Direction.Right;
-            default:
-                return Direction.Left;
-        }
-    }
-
-    void ChangeSpriteTo(Direction orientation)
-    {
-        switch (orientation)
-        {
-            case Direction.Up:
-                spriteRenderer.sprite = northSprite;
-                break;
-            case Direction.Right:
-                spriteRenderer.sprite = eastSprite;
-                break;
-            case Direction.Down:
-                spriteRenderer.sprite = southSprite;
-                break;
-            case Direction.Left:
-                spriteRenderer.sprite = westSprite;
-                break;
-        }
-    }
-    private bool CouldMoveOnBox(Vector2 boxPosition)
-    {
-        if (boxPosition.x < 0 || boxPosition.y < 0) return false;
-        if (boxPosition.x >= GridManager.instance.gridSize.x) return false;
-        if (boxPosition.y >= GridManager.instance.gridSize.y) return false;
-        if (GridManager.instance.GetBoxInfo(boxPosition).isObstacle) return false;
-        // Check if isEnnemy ????
-        return true;
-    }
-
-    bool DoesUnitMove(EnnemyType ennemyType)
-    {
-        switch (ennemyType)
-        {
-            case EnnemyType.Cat:
-                return true;
-            default:
-                return false;
-        }
-
-    }
-
-    void MoveUnit(Direction orientation, float range = 1)
-    {
-        Vector2 stepToAdd = new();
-        Debug.Log("Ennemy Move");
-        switch (orientation) //on d�termine la box a check en fonction de l'orientation actuel de l'unit�
-        {
-            case Direction.Up:
-                stepToAdd = new Vector2(0, 1);
-                break;
-            case Direction.Left:
-                stepToAdd = new Vector2(-1, 0);
-                break;
-            case Direction.Down:
-                stepToAdd = new Vector2(0, -1);
-                break;
-            case Direction.Right:
-                stepToAdd = new Vector2(1, 0);
-                break;
-        }
-
-        stepToAdd *= GridSetUp.instance.gridStep ;
-
-        switch (_ennemyType)
-        {
-            case EnnemyType.Cat:
-                Vector3 newMove = new Vector3(stepToAdd.x * range, stepToAdd.y * range, 0);
-                this.transform.position += newMove;
-                break;
-            default:
-                break;        
-        }
-    }
+    #endregion
+    
 }
 
-
 [Serializable]
-public struct EnnemyInGrid
-{
+public struct EnnemyInGrid {
     public string name;
     public EnnemyType ennemyType;
     public Vector2 startInGrid;
@@ -295,22 +265,19 @@ public struct EnnemyInGrid
 
 }
 
-public enum EnnemyType
-{
+public enum EnnemyType {
     Cat,
     Snake
 }
 
-public enum Direction
-{
+public enum Direction {
     Up,
     Right,
     Down,
     Left
 }
 
-public enum EnnemyState
-{
+public enum EnnemyState {
     play, //the unit will do its base behavior
     heard, //the unit detected a sound this turn  
     turningToward,//the unit turn toward the sound
