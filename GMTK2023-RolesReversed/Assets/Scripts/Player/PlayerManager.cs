@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour {
         if(state == GameState.StartLevel) {
             playerInfo.cheeseLevel = 0;
             playerInfo.isSmashing = false;
+            playerInfo.isOnFury = false;
             OnGetDaCheese?.Invoke();
             return;
         }
