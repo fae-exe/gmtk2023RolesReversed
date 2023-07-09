@@ -64,7 +64,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allGrid:
+  - {fileID: 11400000, guid: 6219971ea50a59e4785543fb29f2f8f5, type: 2}
+  - {fileID: 11400000, guid: 35ad775b485966d4da239927c37d92f0, type: 2}
   - {fileID: 11400000, guid: 15bb6a749b4f98b44ae57ce0782e1d23, type: 2}
+  - {fileID: 11400000, guid: 46ee5718705bec543835a081cffa0e4b, type: 2}
+  - {fileID: 11400000, guid: b05610ccef071e04ea344e855f0bc4ab, type: 2}
 --- !u!114 &4692752450542569087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +113,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4692752452055532175}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
