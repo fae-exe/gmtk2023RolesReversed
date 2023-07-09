@@ -8,7 +8,7 @@ public class EnnemyUnitScript : MonoBehaviour
 {
 
     public EnnemyType _ennemyType;
-
+    public EnnemyDataSO ennemyData;
     public Direction currentOrientation;
     public Direction orientationBeforeAudioEvent;
     public Vector2 currentPosition;
@@ -25,6 +25,13 @@ public class EnnemyUnitScript : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        ennemyData = EnnemyManager.instance.ennemyList.ennemyDic[ennemy.ennemyType];
+
+        northSprite = ennemyData.northSprite;
+        eastSprite = ennemyData.eastSprite;
+        southSprite = ennemyData.southSprite;
+        westSprite = ennemyData.westSprite;
+
         currentOrientation = ennemy.directionStart;
         currentPosition = ennemy.startInGrid;
         ChangeSpriteTo(currentOrientation);
@@ -35,45 +42,45 @@ public class EnnemyUnitScript : MonoBehaviour
     {
 
     }
-    //public void EnnemyPlay()
-    //{
-    //    //audio event cases
-    //    if(ennemyState == EnnemyState.heard)
-    //    {
-    //        orientationBeforeAudioEvent=currentOrientation;
-    //    }
-    //    else if(ennemyState == EnnemyState.turningToward)
-    //    {
-    //        ChangeOrientationTowards(DirectionOfNoise(positionOfAudioEvent));
-    //    }
-    //    else if (ennemyState == EnnemyState.turningBack)
-    //    {
-    //        ChangeOrientationTowards(orientationBeforeAudioEvent);
-    //        ennemyState = EnnemyState.play; //we go back to standard behavior
+    public void EnnemyPlay()
+    {
+        //audio event cases
+        if (ennemyState == EnnemyState.heard)
+        {
+            orientationBeforeAudioEvent = currentOrientation;
+        }
+        else if (ennemyState == EnnemyState.turningToward)
+        {
+            ChangeOrientationTowards(DirectionOfNoise(positionOfAudioEvent));
+        }
+        else if (ennemyState == EnnemyState.turningBack)
+        {
+            ChangeOrientationTowards(orientationBeforeAudioEvent);
+            ennemyState = EnnemyState.play; //we go back to standard behavior
 
-    //    }
-
-
-    //    //normal behavior
-    //    else if (DoesUnitMove(_ennemyType))
-    //    {
-    //        if (!CheckNextBoxContent())
-    //        {
-    //            ChangeOrientationTowards(Uturn(currentOrientation));
-    //        }
-    //        else
-    //        {
-    //            move = true;
-    //        }
-    //    }
-
-    //    CheckSight(currentOrientation);
-        
-    //    if(move)MoveUnit(currentOrientation);
-    //    move = false;
+        }
 
 
-    //}
+        //normal behavior
+        else if (DoesUnitMove(_ennemyType))
+        {
+            if (!CheckNextBoxContent())
+            {
+                ChangeOrientationTowards(Uturn(currentOrientation));
+            }
+            else
+            {
+                move = true;
+            }
+        }
+
+        //CheckSight(currentOrientation);
+
+        if (move) MoveUnit(currentOrientation);
+        move = false;
+
+
+    }
 
     public bool CheckNextBoxContent(float range = 1)
     {
@@ -177,11 +184,12 @@ public class EnnemyUnitScript : MonoBehaviour
             else
             {
                 tilesChecked.Add(tileToCheck);
+                Debug.Log(tileToCheck.gameObject.name +"seen.");
             }
 
             if (GridManager.instance.GetBoxInfo(boxPosition).isPlayer)
             {
-                GameManager.instance.UpdateGameState(GameState.Lose);
+                //EnnemyManager.instance.PlayerSeenByEnnemy(this)
             }
         }
        
@@ -244,8 +252,8 @@ public class EnnemyUnitScript : MonoBehaviour
 
     void MoveUnit(Direction orientation, float range = 1)
     {
-        Vector2 stepToAdd = new(); 
-
+        Vector2 stepToAdd = new();
+        Debug.Log("Ennemy Move");
         switch (orientation) //on d�termine la box a check en fonction de l'orientation actuel de l'unit�
         {
             case Direction.Up:
